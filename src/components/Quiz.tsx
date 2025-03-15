@@ -6,14 +6,23 @@ type QuizProps = {
   questions: { question: string; answers: string[] }[];
 };
 
+type ResultEntry = { // ADDED
+  question: string;
+  userAnswer: string;
+  correctAnswer: string;
+  isCorrect: boolean;
+};
+
 export function Quiz({ questions }: QuizProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
-  const [feedback, setFeedback] = useState("asdasdasdasd");
+  const [feedback, setFeedback] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [incorrectCount, setIncorrectCount] = useState(0);
+  const [quizFinished, setQuizFinished] = useState(false); // ADDED
+  const [results, setResults] = useState<ResultEntry[]>([]); // ADDED
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -26,17 +35,32 @@ export function Quiz({ questions }: QuizProps) {
     if (!submitted) {
       const normalizedInput = normalizeAnswer(userAnswer);
       const correctAnswers = questions[currentQuestion].answers.map(normalizeAnswer);
+      const isAnswerCorrect = correctAnswers.includes(normalizedInput);
 
-      if (correctAnswers.includes(normalizedInput)) {
-        setFeedback("✅ Correct!");
-        setIsCorrect(true);
+      setFeedback(
+        isAnswerCorrect
+          ? "✅ Correct!"
+          : `❌ Incorrect! The answer is: ${questions[currentQuestion].answers.join(" / ")}`
+      );
+      setIsCorrect(isAnswerCorrect);
+      setSubmitted(true);
+
+      // Store result entry
+      setResults((prev) => [
+        ...prev,
+        {
+          question: questions[currentQuestion].question,
+          userAnswer: userAnswer || "(empty)", // ADDED
+          correctAnswer: questions[currentQuestion].answers.join(" / "), // ADDED
+          isCorrect: isAnswerCorrect, // ADDED
+        },
+      ]);
+
+      if (isAnswerCorrect) {
         setCorrectCount((prev) => prev + 1);
       } else {
-        setFeedback(`❌ Incorrect! The answer is: ${questions[currentQuestion].answers.join(" / ")}`);
-        setIsCorrect(false);
         setIncorrectCount((prev) => prev + 1);
       }
-      setSubmitted(true);
     }
   };
 
@@ -48,29 +72,49 @@ export function Quiz({ questions }: QuizProps) {
       setIsCorrect(false);
       setTimeout(() => setFeedback(""), 500);
     } else {
-      setFeedback("🎉 Quiz Complete! Refresh to try again.");
+      setQuizFinished(true); // ADDED
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      if (!submitted && userAnswer.trim()) {
-        handleSubmit();
-      } else {
-        nextQuestion();
-      }
-    }
+  const stopQuiz = () => { // ADDED
+    setQuizFinished(true);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserAnswer(e.target.value);
+  const restartQuiz = () => { // ADDED
+    setCurrentQuestion(0);
+    setUserAnswer("");
     setFeedback("");
     setSubmitted(false);
+    setIsCorrect(false);
+    setCorrectCount(0);
+    setIncorrectCount(0);
+    setResults([]); 
+    setQuizFinished(false);
   };
+
+  if (quizFinished) { // ADDED - Show result screen
+    return (
+      <div className="result-screen">
+        <h2>Quiz Results</h2>
+        <p>✅ Correct: {correctCount} | ❌ Incorrect: {incorrectCount}</p>
+
+        <div className="result-list"> {/* ADDED */}
+          {results.map((r, index) => (
+            <div key={index} className={`result-item ${r.isCorrect ? "correct" : "incorrect"}`}>
+              <p><strong>Q:</strong> {r.question}</p>
+              <p><strong>Your Answer:</strong> {r.userAnswer}</p>
+              {!r.isCorrect && <p><strong>Correct Answer:</strong> {r.correctAnswer}</p>}
+            </div>
+          ))}
+        </div>
+
+        <button onClick={restartQuiz}>Restart Quiz</button> {/* ADDED */}
+      </div>
+    );
+  }
 
   return (
     <div className="quiz-container">
-      {/* Fixed Feedback Bar */}
       <div className={`feedback-bar ${submitted ? (isCorrect ? "correct" : "incorrect") : ""}`}>
         {submitted ? (
           <span className="feedback-text">{feedback}</span>
@@ -81,39 +125,25 @@ export function Quiz({ questions }: QuizProps) {
         )}
       </div>
 
-      {/* Wrapper for Question and Answer Display */}
       <div className="content-wrapper">
         <div className="question-text">{questions[currentQuestion].question}</div>
-
-        {/* Transparent Input Field */}
         <input
           ref={inputRef}
           type="text"
           value={userAnswer}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
+          onChange={(e) => setUserAnswer(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && (!submitted ? handleSubmit() : nextQuestion())}
           className="visible-input"
           autoFocus
         />
       </div>
 
-      {/* Buttons at the Bottom */}
       <div className="button-container">
         <button onClick={handleSubmit} disabled={submitted}>Submit</button>
         {submitted && currentQuestion < questions.length - 1 && (
           <button onClick={nextQuestion}>Next</button>
         )}
-        {submitted && currentQuestion === questions.length - 1 && (
-          <button onClick={() => {
-            setCurrentQuestion(0);
-            setUserAnswer("");
-            setFeedback("");
-            setSubmitted(false);
-            setIsCorrect(false);
-            setCorrectCount(0);
-            setIncorrectCount(0);
-          }}>Restart Quiz</button>
-        )}
+        <button onClick={stopQuiz} className="stop-button">Stop Quiz</button> {/* ADDED */}
       </div>
     </div>
   );

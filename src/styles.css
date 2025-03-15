@@ -91,3 +91,38 @@
     cursor: pointer;
   }
   
+  .result-screen {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .result-list {
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: left;
+  }
+  
+  .result-item {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .result-item.correct {
+    background-color: lightgreen;
+  }
+  
+  .result-item.incorrect {
+    background-color: lightcoral;
+  }
+  
+  .stop-button {
+    background: red;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
