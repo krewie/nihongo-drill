@@ -1,9 +1,11 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { DemoQuiz } from "./pages/DemonstrativeQuiz";
 import { PronounsQuiz } from "./pages/PronounsQuiz";
+import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu"; // 🔹 Import React-Menu
+import "@szhsin/react-menu/dist/index.css"; // 🔹 Import default styles
 
 function App() {
-  const navigate = useNavigate(); // 🔹 Use navigate for button-based routing
+  const navigate = useNavigate(); // 🔹 Use navigate for routing
 
   return (
     <div className="app">
@@ -11,9 +13,13 @@ function App() {
 
       {/* Navigation Buttons */}
       <div className="nav-buttons">
-        <button onClick={() => navigate("/")}>Home</button>
-        <button onClick={() => navigate("/demoquiz")}>Demonstratives Quiz</button>
-        <button onClick={() => navigate("/pronounsquiz")}>People Pronouns Quiz</button>
+        <button onClick={() => navigate("/")}>🏠 Home</button>
+
+        {/* 🔹 Popup Quiz Menu */}
+        <Menu menuButton={<MenuButton>📚 Select a Quiz ▼</MenuButton>}>
+          <MenuItem onClick={() => navigate("/demoquiz")}>📌 Demonstratives Quiz</MenuItem>
+          <MenuItem onClick={() => navigate("/pronounsquiz")}>🧑‍🤝‍🧑 People Pronouns Quiz</MenuItem>
+        </Menu>
       </div>
 
       <Routes>
