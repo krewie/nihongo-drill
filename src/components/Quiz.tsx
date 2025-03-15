@@ -12,6 +12,8 @@ export function Quiz({ questions }: QuizProps) {
   const [feedback, setFeedback] = useState("asdasdasdasd");
   const [submitted, setSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [correctCount, setCorrectCount] = useState(0);
+  const [incorrectCount, setIncorrectCount] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -28,9 +30,11 @@ export function Quiz({ questions }: QuizProps) {
       if (correctAnswers.includes(normalizedInput)) {
         setFeedback("✅ Correct!");
         setIsCorrect(true);
+        setCorrectCount((prev) => prev + 1);
       } else {
         setFeedback(`❌ Incorrect! The answer is: ${questions[currentQuestion].answers.join(" / ")}`);
         setIsCorrect(false);
+        setIncorrectCount((prev) => prev + 1);
       }
       setSubmitted(true);
     }
@@ -40,9 +44,9 @@ export function Quiz({ questions }: QuizProps) {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion((prev) => prev + 1);
       setUserAnswer("");
-      setFeedback("");
       setSubmitted(false);
       setIsCorrect(false);
+      setTimeout(() => setFeedback(""), 500);
     } else {
       setFeedback("🎉 Quiz Complete! Refresh to try again.");
     }
@@ -68,7 +72,13 @@ export function Quiz({ questions }: QuizProps) {
     <div className="quiz-container">
       {/* Fixed Feedback Bar */}
       <div className={`feedback-bar ${submitted ? (isCorrect ? "correct" : "incorrect") : ""}`}>
-        {submitted && <span className="feedback-text">{feedback}</span>}
+        {submitted ? (
+          <span className="feedback-text">{feedback}</span>
+        ) : (
+          <span className="feedback-text">
+            Q{currentQuestion + 1}/{questions.length} - ✅ {correctCount} | ❌ {incorrectCount}
+          </span>
+        )}
       </div>
 
       {/* Wrapper for Question and Answer Display */}
@@ -94,7 +104,15 @@ export function Quiz({ questions }: QuizProps) {
           <button onClick={nextQuestion}>Next</button>
         )}
         {submitted && currentQuestion === questions.length - 1 && (
-          <button onClick={() => window.location.reload()}>Restart Quiz</button>
+          <button onClick={() => {
+            setCurrentQuestion(0);
+            setUserAnswer("");
+            setFeedback("");
+            setSubmitted(false);
+            setIsCorrect(false);
+            setCorrectCount(0);
+            setIncorrectCount(0);
+          }}>Restart Quiz</button>
         )}
       </div>
     </div>
