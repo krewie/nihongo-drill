@@ -1,61 +1,112 @@
-import { useState } from "react";
-import { QuestionCard } from "./QuestionCard";
+import { useState, useRef, useEffect } from "react";
+import { toHiragana } from "wanakana";
+import "../styles.css";
 
-const questions = [
-  { question: "What is 'this' in Japanese?", answer: "これ" },
-  { question: "What is 'that' (near listener) in Japanese?", answer: "それ" },
-  { question: "What is 'that' (far away) in Japanese?", answer: "あれ" },
-];
+type QuizProps = {
+  questions: { question: string; answers: string[] }[];
+};
 
-export function Quiz() {
+export function Quiz({ questions }: QuizProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
   const [feedback, setFeedback] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus(); // Keep input field focused
+    }
+  }, [userAnswer, submitted]);
 
   const handleSubmit = () => {
-    if (userAnswer.trim() === questions[currentQuestion].answer) {
-      setFeedback("✅ Correct!");
-    } else {
-      setFeedback(`❌ Incorrect! The answer is: ${questions[currentQuestion].answer}`);
+    if (!submitted) {
+      const normalizedInput = normalizeAnswer(userAnswer);
+      const correctAnswers = questions[currentQuestion].answers.map(normalizeAnswer);
+
+      if (correctAnswers.includes(normalizedInput)) {
+        setFeedback("✅ Correct!");
+        setIsCorrect(true);
+      } else {
+        setFeedback(`❌ Incorrect! The answer is: ${questions[currentQuestion].answers.join(" / ")}`);
+        setIsCorrect(false);
+      }
+      setSubmitted(true);
     }
-    setSubmitted(true);
   };
 
   const nextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion((prev) => prev + 1);
-      setUserAnswer(""); // Clear the input field
-      setFeedback(""); // Reset feedback
-      setSubmitted(false); // Reset submission state
+      setUserAnswer("");
+      setFeedback("");
+      setSubmitted(false);
+      setIsCorrect(false);
+    } else {
+      setFeedback("🎉 Quiz Complete! Refresh to try again.");
     }
   };
 
-  
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       if (!submitted && userAnswer.trim()) {
-        handleSubmit(); // Submit answer
+        handleSubmit();
       } else {
-        nextQuestion(); // Move to next question if already submitted or empty input
+        nextQuestion();
       }
     }
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserAnswer(e.target.value);
+    setFeedback("");
+    setSubmitted(false);
+  };
+
   return (
-    <div className="quiz">
-      <QuestionCard
-        question={questions[currentQuestion].question}
-        userAnswer={userAnswer}
-        setUserAnswer={setUserAnswer}
-        onKeyDown={handleKeyDown} // Pass event handler to input
-      />
-      <button onClick={handleSubmit} disabled={submitted}>Submit</button>
-      <p>{feedback}</p>
-      {currentQuestion < questions.length - 1 && (
-        <button onClick={nextQuestion}>Next</button>
-      )}
+    <div className="quiz-container">
+      {/* Feedback Bar */}
+      <div className={`feedback-bar ${submitted ? (isCorrect ? "correct" : "incorrect") : ""}`}>
+        {submitted && <span className="feedback-text">{feedback}</span>}
+      </div>
+
+      {/* Wrapper for Question and Answer Display */}
+      <div className="content-wrapper">
+        {/* Question Above Input */}
+        <div className="question-text">{questions[currentQuestion].question}</div>
+
+        {/* Display User's Typed Answer */}
+        <div className="answer-display">{userAnswer || "..."}</div>
+
+        {/* Transparent Input Field */}
+        <input
+          ref={inputRef}
+          type="text"
+          value={userAnswer}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          className="visible-input"
+          autoFocus
+        />
+      </div>
+
+      {/* Buttons at the Bottom */}
+      <div className="button-container">
+        <button onClick={handleSubmit} disabled={submitted}>Submit</button>
+        {submitted && currentQuestion < questions.length - 1 && (
+          <button onClick={nextQuestion}>Next</button>
+        )}
+        {submitted && currentQuestion === questions.length - 1 && (
+          <button onClick={() => window.location.reload()}>Restart Quiz</button>
+        )}
+      </div>
     </div>
   );
 }
 
+const normalizeAnswer = (text: string) => {
+  return toHiragana(text.trim())
+    .normalize("NFKC")
+    .replace(/\s+/g, "");
+};

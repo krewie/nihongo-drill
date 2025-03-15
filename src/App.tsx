@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
-import { Quiz } from "./components/Quiz";
+import { DemoQuiz } from "./pages/DemonstrativeQuiz";
+import { PronounsQuiz } from "./pages/PronounsQuiz";
 
 function App() {
   return (
@@ -8,13 +9,15 @@ function App() {
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/demoquiz">Demo Quiz</Link></li>
+          <li><Link to="/demoquiz">Demonstratives Quiz</Link></li>
+          <li><Link to="/pronounsquiz">People Pronouns Quiz</Link></li>
         </ul>
       </nav>
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/demoquiz" element={<Quiz />} />
+        <Route path="/demoquiz" element={<DemoQuiz />} />
+        <Route path="/pronounsquiz" element={<PronounsQuiz />} />
       </Routes>
     </div>
   );
