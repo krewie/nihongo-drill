@@ -6,7 +6,7 @@ type QuizProps = {
   questions: { question: string; answers: string[] }[];
 };
 
-type ResultEntry = { // ADDED
+type ResultEntry = {
   question: string;
   userAnswer: string;
   correctAnswer: string;
@@ -21,15 +21,26 @@ export function Quiz({ questions }: QuizProps) {
   const [isCorrect, setIsCorrect] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [incorrectCount, setIncorrectCount] = useState(0);
-  const [quizFinished, setQuizFinished] = useState(false); // ADDED
-  const [results, setResults] = useState<ResultEntry[]>([]); // ADDED
+  const [quizFinished, setQuizFinished] = useState(false);
+  const [results, setResults] = useState<ResultEntry[]>([]);
+  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false); // 🔹 NEW
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (inputRef.current) {
-      inputRef.current.focus(); // Keep input field focused
+      inputRef.current.focus();
     }
   }, [userAnswer, submitted]);
+
+  // 🔹 DETECT IF KEYBOARD OPENS BY CHECKING VIEWPORT HEIGHT
+  useEffect(() => {
+    const handleResize = () => {
+      setIsKeyboardOpen(window.innerHeight < 500);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleSubmit = () => {
     if (!submitted) {
@@ -45,14 +56,13 @@ export function Quiz({ questions }: QuizProps) {
       setIsCorrect(isAnswerCorrect);
       setSubmitted(true);
 
-      // Store result entry
       setResults((prev) => [
         ...prev,
         {
           question: questions[currentQuestion].question,
-          userAnswer: userAnswer || "(empty)", // ADDED
-          correctAnswer: questions[currentQuestion].answers.join(" / "), // ADDED
-          isCorrect: isAnswerCorrect, // ADDED
+          userAnswer: userAnswer || "(empty)",
+          correctAnswer: questions[currentQuestion].answers.join(" / "),
+          isCorrect: isAnswerCorrect,
         },
       ]);
 
@@ -72,15 +82,15 @@ export function Quiz({ questions }: QuizProps) {
       setIsCorrect(false);
       setTimeout(() => setFeedback(""), 500);
     } else {
-      setQuizFinished(true); // ADDED
+      setQuizFinished(true);
     }
   };
 
-  const stopQuiz = () => { // ADDED
+  const stopQuiz = () => {
     setQuizFinished(true);
   };
 
-  const restartQuiz = () => { // ADDED
+  const restartQuiz = () => {
     setCurrentQuestion(0);
     setUserAnswer("");
     setFeedback("");
@@ -88,17 +98,17 @@ export function Quiz({ questions }: QuizProps) {
     setIsCorrect(false);
     setCorrectCount(0);
     setIncorrectCount(0);
-    setResults([]); 
+    setResults([]);
     setQuizFinished(false);
   };
 
-  if (quizFinished) { // ADDED - Show result screen
+  if (quizFinished) {
     return (
       <div className="result-screen">
         <h2>Quiz Results</h2>
         <p>✅ Correct: {correctCount} | ❌ Incorrect: {incorrectCount}</p>
 
-        <div className="result-list"> {/* ADDED */}
+        <div className="result-list">
           {results.map((r, index) => (
             <div key={index} className={`result-item ${r.isCorrect ? "correct" : "incorrect"}`}>
               <p><strong>Q:</strong> {r.question}</p>
@@ -108,14 +118,14 @@ export function Quiz({ questions }: QuizProps) {
           ))}
         </div>
 
-        <button onClick={restartQuiz}>Restart Quiz</button> {/* ADDED */}
+        <button onClick={restartQuiz}>Restart Quiz</button>
       </div>
     );
   }
 
   return (
     <div className="quiz-container">
-      <div className={`feedback-bar ${submitted ? (isCorrect ? "correct" : "incorrect") : ""}`}>
+      <div className={`feedback-bar ${isKeyboardOpen ? "keyboard-open" : ""} ${submitted ? (isCorrect ? "correct" : "incorrect") : ""}`}>
         {submitted ? (
           <span className="feedback-text">{feedback}</span>
         ) : (
@@ -143,14 +153,12 @@ export function Quiz({ questions }: QuizProps) {
         {submitted && currentQuestion < questions.length - 1 && (
           <button onClick={nextQuestion}>Next</button>
         )}
-        <button onClick={stopQuiz} className="stop-button">Stop Quiz</button> {/* ADDED */}
+        <button onClick={stopQuiz} className="stop-button">Stop Quiz</button>
       </div>
     </div>
   );
 }
 
 const normalizeAnswer = (text: string) => {
-  return toHiragana(text.trim())
-    .normalize("NFKC")
-    .replace(/\s+/g, "");
+  return toHiragana(text.trim()).normalize("NFKC").replace(/\s+/g, "");
 };
