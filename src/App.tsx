@@ -1,8 +1,9 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { DemoQuiz } from "./pages/DemonstrativeQuiz";
-import { PronounsQuiz } from "./pages/PronounsQuiz";
 import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu"; // 🔹 Import React-Menu
 import "@szhsin/react-menu/dist/index.css"; // 🔹 Import default styles
+import { DemoQuiz } from "./pages/DemonstrativeQuiz";
+import { PronounsQuiz } from "./pages/PronounsQuiz";
+import { WeekDaysQuiz } from "./pages/WeekDaysQuiz";
 
 function App() {
   const navigate = useNavigate(); // 🔹 Use navigate for routing
@@ -19,6 +20,7 @@ function App() {
         <Menu menuButton={<MenuButton>📚 Select a Quiz ▼</MenuButton>}>
           <MenuItem onClick={() => navigate("/demoquiz")}>📌 Demonstratives Quiz</MenuItem>
           <MenuItem onClick={() => navigate("/pronounsquiz")}>🧑‍🤝‍🧑 People Pronouns Quiz</MenuItem>
+          <MenuItem onClick={() => navigate("/weekdaysquiz")}>📅 Weekdays Quiz</MenuItem>
         </Menu>
       </div>
 
@@ -26,6 +28,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/demoquiz" element={<DemoQuiz />} />
         <Route path="/pronounsquiz" element={<PronounsQuiz />} />
+        <Route path="/weekdaysquiz" element={<WeekDaysQuiz />} />
       </Routes>
     </div>
   );
