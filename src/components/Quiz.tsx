@@ -187,22 +187,22 @@ export async function fetchUserQuizHistory(userId: string, quizType: string, ini
     return [];
   }
 
-  const filteredQuestions = data.filter(q => {
-    const existsInQuestions = initialQuestions.some((orig: { question: string }) => orig.question === q.question);
+  const filteredQuestions = data.filter((q: { question: string; correct_count: number; incorrect_count: number }) => {
+    const existsInQuestions = initialQuestions.some((orig) => orig.question === q.question);
     if (!existsInQuestions) return false;
-
+  
     const totalAttempts = q.correct_count + q.incorrect_count;
     if (totalAttempts === 0) return true;
-
+  
     const accuracy = q.correct_count / totalAttempts;
-
+  
     if (accuracy >= 0.8) {
       console.log(`⏭️ IGNORING Question: "${q.question}" | 🎯 Accuracy: ${(accuracy * 100).toFixed(2)}%`);
       return false;
     }
-
+  
     return true;
-  });
+  });  
 
   console.log(`🔄 Fetching past mistakes: ${filteredQuestions.length} questions need improvement`);
 
