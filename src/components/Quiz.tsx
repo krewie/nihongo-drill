@@ -23,7 +23,6 @@ export function Quiz({ questions }: QuizProps) {
   const [incorrectCount, setIncorrectCount] = useState(0);
   const [quizFinished, setQuizFinished] = useState(false);
   const [results, setResults] = useState<ResultEntry[]>([]);
-  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false); // 🔹 NEW
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -31,16 +30,6 @@ export function Quiz({ questions }: QuizProps) {
       inputRef.current.focus();
     }
   }, [userAnswer, submitted]);
-
-  // 🔹 DETECT IF KEYBOARD OPENS BY CHECKING VIEWPORT HEIGHT
-  useEffect(() => {
-    const handleResize = () => {
-      setIsKeyboardOpen(window.innerHeight < 500);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const handleSubmit = () => {
     if (!submitted) {
