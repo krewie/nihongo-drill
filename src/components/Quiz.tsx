@@ -9,7 +9,7 @@ type QuizProps = {
 export function Quiz({ questions }: QuizProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
-  const [feedback, setFeedback] = useState("");
+  const [feedback, setFeedback] = useState("asdasdasdasd");
   const [submitted, setSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -66,18 +66,14 @@ export function Quiz({ questions }: QuizProps) {
 
   return (
     <div className="quiz-container">
-      {/* Feedback Bar */}
+      {/* Fixed Feedback Bar */}
       <div className={`feedback-bar ${submitted ? (isCorrect ? "correct" : "incorrect") : ""}`}>
         {submitted && <span className="feedback-text">{feedback}</span>}
       </div>
 
       {/* Wrapper for Question and Answer Display */}
       <div className="content-wrapper">
-        {/* Question Above Input */}
         <div className="question-text">{questions[currentQuestion].question}</div>
-
-        {/* Display User's Typed Answer */}
-        <div className="answer-display">{userAnswer || "..."}</div>
 
         {/* Transparent Input Field */}
         <input
