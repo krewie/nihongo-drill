@@ -4,6 +4,7 @@ import "@szhsin/react-menu/dist/index.css"; // 🔹 Import default styles
 import { DemoQuiz } from "./pages/DemonstrativeQuiz";
 import { PronounsQuiz } from "./pages/PronounsQuiz";
 import { WeekDaysQuiz } from "./pages/WeekDaysQuiz";
+import { KanjiReadingQuiz } from "./pages/KanjiReadingQuiz";
 
 function App() {
   const navigate = useNavigate(); // 🔹 Use navigate for routing
@@ -21,6 +22,7 @@ function App() {
           <MenuItem onClick={() => navigate("/demoquiz")}>📌 Demonstratives Quiz</MenuItem>
           <MenuItem onClick={() => navigate("/pronounsquiz")}>🧑‍🤝‍🧑 People Pronouns Quiz</MenuItem>
           <MenuItem onClick={() => navigate("/weekdaysquiz")}>📅 Weekdays Quiz</MenuItem>
+          <MenuItem onClick={() => navigate("/kanjireadingquiz")}>🔰 Kanji reading Quiz</MenuItem>
         </Menu>
       </div>
 
@@ -29,6 +31,7 @@ function App() {
         <Route path="/demoquiz" element={<DemoQuiz />} />
         <Route path="/pronounsquiz" element={<PronounsQuiz />} />
         <Route path="/weekdaysquiz" element={<WeekDaysQuiz />} />
+        <Route path="/kanjireadingquiz" element={<KanjiReadingQuiz />} />
       </Routes>
     </div>
   );
