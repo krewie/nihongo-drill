@@ -72,19 +72,23 @@
     word-wrap: break-word;
   }
   
-  /* Visible Input Field */
-  .visible-input {
+/* Input field */
+.visible-input {
     width: 80%;
-    height: 60px;
+    height: clamp(50px, 8vh, 100px);
     background: transparent;
     border: none;
     outline: none;
     text-align: center;
-    font-size: 48px;
+    font-size: clamp(32px, 6vw, 72px);
     font-weight: bold;
     color: rgb(0, 225, 255);
-    caret-color: white; /* Ensures cursor is visible */
-  }
+    caret-color: white;
+    
+    /* ✅ Simple straight underline */
+    border-bottom: 3px solid rgb(75, 75, 75);
+}
+
   
   /* Bottom Button Container */
   .button-container {
@@ -127,7 +131,16 @@
   }
   
   .stop-button {
-    background: red;
+    background: rgb(88, 0, 0);
+    color: white;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .submit-button {
+    background: rgb(0, 71, 99);
     color: white;
     padding: 10px 15px;
     margin-top: 10px;
@@ -135,3 +148,9 @@
     cursor: pointer;
   }
   
+  /* ✅ Add left padding when screen is larger than 200px */
+@media (min-width: 1500px) {
+    .quiz-container {
+        padding-left: 800px;
+    }
+}

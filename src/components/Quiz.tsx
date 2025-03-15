@@ -133,7 +133,7 @@ export function Quiz({ quizName, questions: initialQuestions }: QuizProps) {
         {submitted && <div className="feedback-text">{feedback}</div>}
       </div>
       <div className="button-container">
-        <button onClick={handleSubmit} disabled={submitted}>Submit</button>
+        <button onClick={handleSubmit} disabled={submitted} className="submit-button">Submit</button>
         {submitted && <button onClick={nextQuestion}>Next</button>}
         <button onClick={() => setQuizFinished(true)} className="stop-button">Stop Quiz</button>
       </div>
