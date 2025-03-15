@@ -8,6 +8,16 @@
     font-family: Arial, sans-serif;
     position: relative;
   }
+
+  /* Green background for correct answers */
+.correct-bg {
+    background-color: rgb(0, 90, 0);
+  }
+  
+  /* Red background for incorrect answers */
+  .incorrect-bg {
+    background-color: rgb(90, 0, 0);
+  }
   
   .feedback-bar {
     position: fixed;
@@ -28,11 +38,11 @@
   }
   
   .correct {
-    background: green;
+
   }
   
   .incorrect {
-    background: red;
+
   }
   
   .feedback-text {
@@ -40,6 +50,7 @@
     display: inline-block;
     text-align: center;
     width: 100%;
+    white-space: pre-line;
   }
   
   

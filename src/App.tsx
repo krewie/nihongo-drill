@@ -1,18 +1,20 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { DemoQuiz } from "./pages/DemonstrativeQuiz";
 import { PronounsQuiz } from "./pages/PronounsQuiz";
 
 function App() {
+  const navigate = useNavigate(); // 🔹 Use navigate for button-based routing
+
   return (
     <div className="app">
-      <h1>My Quiz App</h1>
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/demoquiz">Demonstratives Quiz</Link></li>
-          <li><Link to="/pronounsquiz">People Pronouns Quiz</Link></li>
-        </ul>
-      </nav>
+      <h1>Krewie's 日本語 drill!</h1>
+
+      {/* Navigation Buttons */}
+      <div className="nav-buttons">
+        <button onClick={() => navigate("/")}>Home</button>
+        <button onClick={() => navigate("/demoquiz")}>Demonstratives Quiz</button>
+        <button onClick={() => navigate("/pronounsquiz")}>People Pronouns Quiz</button>
+      </div>
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -24,7 +26,7 @@ function App() {
 }
 
 function Home() {
-  return <h2>Welcome! Select a quiz from the navigation.</h2>;
+  return <p>Welcome! Select a quiz to begin.</p>;
 }
 
 export default App;

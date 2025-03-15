@@ -51,8 +51,9 @@ export function Quiz({ questions }: QuizProps) {
       setFeedback(
         isAnswerCorrect
           ? "✅ Correct!"
-          : `❌ Incorrect! The answer is: ${questions[currentQuestion].answers.join(" / ")}`
+          : `❌ Incorrect!\nThe answer is: \n${questions[currentQuestion].answers.join(" / ")}`
       );
+      
       setIsCorrect(isAnswerCorrect);
       setSubmitted(true);
 
@@ -124,8 +125,9 @@ export function Quiz({ questions }: QuizProps) {
   }
 
   return (
-    <div className="quiz-container">
-      <div className={`feedback-bar ${isKeyboardOpen ? "keyboard-open" : ""} ${submitted ? (isCorrect ? "correct" : "incorrect") : ""}`}>
+    <div className={`quiz-container ${submitted ? (isCorrect ? "correct-bg" : "incorrect-bg") : ""}`}>
+      <div className="content-wrapper">
+      <div className={`question-text ${submitted ? (isCorrect ? "correct" : "incorrect") : ""}`}>
         {submitted ? (
           <span className="feedback-text">{feedback}</span>
         ) : (
@@ -135,7 +137,6 @@ export function Quiz({ questions }: QuizProps) {
         )}
       </div>
 
-      <div className="content-wrapper">
         <div className="question-text">{questions[currentQuestion].question}</div>
         <input
           ref={inputRef}
