@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import { toHiragana } from "wanakana";
 import "../styles.css";
 import supabase from "../supabase";
-import Furigana from "react-furigana";
 
 type QuizProps = {
   quizName: string;
@@ -229,11 +228,5 @@ const speak = (text: string) => {
 
   speechSynthesis.speak(utterance);
 };
-
-const renderQuestionWithFurigana = (kanjiText: string, furiganaText: string) => {
-  return <Furigana>{`${kanjiText}|${furiganaText}`}</Furigana>;
-};
-
-
 
 const shuffleArray = (array: any[]) => array.sort(() => Math.random() - 0.5);
