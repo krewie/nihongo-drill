@@ -5,6 +5,7 @@ import { DemoQuiz } from "./pages/DemonstrativeQuiz";
 import { PronounsQuiz } from "./pages/PronounsQuiz";
 import { WeekDaysQuiz } from "./pages/WeekDaysQuiz";
 import { KanjiReadingQuiz } from "./pages/KanjiReadingQuiz";
+import { MinnaNoNihongo } from "./pages/MinnaNoQuiz";
 
 function App() {
   const navigate = useNavigate(); // 🔹 Use navigate for routing
@@ -23,6 +24,7 @@ function App() {
           <MenuItem onClick={() => navigate("/pronounsquiz")}>🧑‍🤝‍🧑 People Pronouns Quiz</MenuItem>
           <MenuItem onClick={() => navigate("/weekdaysquiz")}>📅 Weekdays Quiz</MenuItem>
           <MenuItem onClick={() => navigate("/kanjireadingquiz")}>🔰 Kanji reading Quiz</MenuItem>
+          <MenuItem onClick={() => navigate("/MinnaNoNihongo")}>🔰 Minna No Nihongo Quiz</MenuItem>
         </Menu>
       </div>
 
@@ -32,6 +34,7 @@ function App() {
         <Route path="/pronounsquiz" element={<PronounsQuiz />} />
         <Route path="/weekdaysquiz" element={<WeekDaysQuiz />} />
         <Route path="/kanjireadingquiz" element={<KanjiReadingQuiz />} />
+        <Route path="/MinnaNoNihongo" element={<MinnaNoNihongo />} />
       </Routes>
     </div>
   );

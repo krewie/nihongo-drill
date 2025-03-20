@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { toHiragana } from "wanakana";
 import "../styles.css";
 import supabase from "../supabase";
+import Furigana from "react-furigana";
 
 type QuizProps = {
   quizName: string;
@@ -120,7 +121,13 @@ export function Quiz({ quizName, questions: initialQuestions }: QuizProps) {
   return (
     <div className={`quiz-container ${submitted ? (isCorrect ? "correct-bg" : "incorrect-bg") : ""}`}>
       <div className="content-wrapper">
-        <div className="question-text">{questions[currentQuestion].question}</div>
+          <div 
+          className="question-text" 
+          onClick={() => speak(questions[currentQuestion].question)}
+          style={{ cursor: "pointer", textDecoration: "underline" }}
+          >
+          {questions[currentQuestion].question}
+          </div>
         <input
           ref={inputRef}
           type="text"
@@ -208,5 +215,25 @@ export async function fetchUserQuizHistory(userId: string, quizType: string, ini
 
   return filteredQuestions.length > 0 ? filteredQuestions : [];
 }
+
+const speak = (text: string) => {
+  if (!window.speechSynthesis) {
+    console.error("Speech synthesis is not supported in this browser.");
+    return;
+  }
+
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "ja-JP"; // Set to Japanese
+  utterance.rate = 0.9; // Adjust speech speed
+  utterance.pitch = 1.1; // Adjust pitch for a natural tone
+
+  speechSynthesis.speak(utterance);
+};
+
+const renderQuestionWithFurigana = (kanjiText: string, furiganaText: string) => {
+  return <Furigana>{`${kanjiText}|${furiganaText}`}</Furigana>;
+};
+
+
 
 const shuffleArray = (array: any[]) => array.sort(() => Math.random() - 0.5);
