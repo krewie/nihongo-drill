@@ -1,14 +1,24 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu"; // 🔹 Import React-Menu
 import "@szhsin/react-menu/dist/index.css"; // 🔹 Import default styles
+import { useTheme } from "next-themes";
+import { Moon, Sun } from "lucide-react";
 import { DemoQuiz } from "./pages/DemonstrativeQuiz";
 import { PronounsQuiz } from "./pages/PronounsQuiz";
 import { WeekDaysQuiz } from "./pages/WeekDaysQuiz";
 import { KanjiReadingQuiz } from "./pages/KanjiReadingQuiz";
 import { MinnaNoNihongo } from "./pages/MinnaNoQuiz";
+import { FlashDrills } from "./pages/FlashDrills";
+import { Button } from "./components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 function App() {
   const navigate = useNavigate(); // 🔹 Use navigate for routing
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className="app">
@@ -16,16 +26,47 @@ function App() {
 
       {/* Navigation Buttons */}
       <div className="nav-buttons">
-        <button onClick={() => navigate("/")}>🏠 Home</button>
+        <Button onClick={() => navigate("/")} variant="outline">
+          🏠
+        </Button>
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        >
+          {theme === "dark" ? (
+            <Sun className="h-4 w-4" />
+          ) : (
+            <Moon className="h-4 w-4" />
+          )}
+        </Button>
 
         {/* 🔹 Popup Quiz Menu */}
-        <Menu menuButton={<MenuButton>📚 Select a Quiz ▼</MenuButton>}>
-          <MenuItem onClick={() => navigate("/demoquiz")}>📌 Demonstratives Quiz</MenuItem>
-          <MenuItem onClick={() => navigate("/pronounsquiz")}>🧑‍🤝‍🧑 People Pronouns Quiz</MenuItem>
-          <MenuItem onClick={() => navigate("/weekdaysquiz")}>📅 Weekdays Quiz</MenuItem>
-          <MenuItem onClick={() => navigate("/kanjireadingquiz")}>🔰 Kanji reading Quiz</MenuItem>
-          <MenuItem onClick={() => navigate("/MinnaNoNihongo")}>🔰 Minna No Nihongo Quiz</MenuItem>
-        </Menu>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline">📚 Select a Quiz ▼</Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem onClick={() => navigate("/demoquiz")}>
+              📌 Demonstratives Quiz
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => navigate("/pronounsquiz")}>
+              🧑‍🤝‍🧑 People Pronouns Quiz
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => navigate("/weekdaysquiz")}>
+              📅 Weekdays Quiz
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => navigate("/kanjireadingquiz")}>
+              🔰 Kanji Reading Quiz
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => navigate("/MinnaNoNihongo")}>
+              🔰 Minna No Nihongo Quiz
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => navigate("/flashdrill")}>
+              🃏 Flash Drill
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
 
       <Routes>
@@ -35,6 +76,7 @@ function App() {
         <Route path="/weekdaysquiz" element={<WeekDaysQuiz />} />
         <Route path="/kanjireadingquiz" element={<KanjiReadingQuiz />} />
         <Route path="/MinnaNoNihongo" element={<MinnaNoNihongo />} />
+        <Route path="/flashdrill" element={<FlashDrills />} />
       </Routes>
     </div>
   );
