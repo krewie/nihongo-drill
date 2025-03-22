@@ -14,50 +14,77 @@ interface KanjiCard {
 interface UseSlidingKanjiDeckConfig {
   chunkSize?: number;
   windowSize?: number;
+  jlpt?: number;
 }
 
 export function useSlidingKanjiDeck({
   chunkSize = 20,
   windowSize = 60,
+  jlpt = 0,
 }: UseSlidingKanjiDeckConfig = {}) {
   const [kanjiList, setKanjiList] = useState<KanjiCard[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  const fetchPage = useCallback(async (page: number) => {
-    setLoading(true);
-    const from = page * chunkSize;
-    const to = from + chunkSize - 1;
+  const fetchPage = useCallback(
+    async (page: number) => {
+      setLoading(true);
+      const from = page * chunkSize;
+      const to = from + chunkSize - 1;
 
-    const query = supabase
-      .from("kanji")
-      .select(
-        `kanji, meanings, stroke_count, jlpt,
-         kun_reading(value),
-         on_reading(value),
-         word(meanings)`
-      )
-      .not("jlpt", "is", null)
+      let query = supabase
+      .from("kanji_with_kun_and_on")
+      .select(`
+        kanji, meanings, stroke_count, jlpt,
+        kun_reading(value),
+        on_reading(value),
+        word(meanings)
+      `)
       .range(from, to);
+    
 
-    const { data, error } = await query;
+      // ✅ Only add .eq if jlpt is provided
+      if (jlpt !== 0) {
+        query = query.eq("jlpt", jlpt.toString());
+      }
 
-    if (error) {
-      console.error("Supabase fetch error:", error);
+      // ✅ Always apply the range
+      query = query.range(from, to);
+
+      const { data, error } = await query;
+
+      if (error) {
+        console.error("Supabase fetch error:", error);
+        setLoading(false);
+        return;
+      }
+
+      if (data && data.length > 0) {
+        const filtered = data.filter((kanji: KanjiCard) => {
+          return (
+            kanji.kun_reading &&
+            kanji.kun_reading.length > 0 &&
+            kanji.on_reading &&
+            kanji.on_reading.length > 0 &&
+            kanji.word &&
+            kanji.word.length > 0
+          );
+        });
+      
+        if (filtered.length > 0) {
+          setKanjiList((prev) => {
+            const merged = [...prev, ...filtered];
+            return merged.slice(-windowSize);
+          });
+          setCurrentPage(page);
+        }
+      }
+      
       setLoading(false);
-      return;
-    }
-
-    if (data && data.length > 0) {
-      setKanjiList((prev) => {
-        const merged = [...prev, ...data];
-        return merged.slice(-windowSize); // sliding window
-      });
-      setCurrentPage(page);
-    }
-    setLoading(false);
-  }, [chunkSize, windowSize]);
+    },
+    [chunkSize, windowSize]
+  );
 
   useEffect(() => {
     // Initial load

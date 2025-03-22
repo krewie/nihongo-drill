@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import { toHiragana } from "wanakana";
-import "../styles.css";
 import supabase from "../supabase";
 
 type QuizProps = {
@@ -118,33 +117,72 @@ export function Quiz({ quizName, questions: initialQuestions }: QuizProps) {
   }
 
   return (
-    <div className={`quiz-container ${submitted ? (isCorrect ? "correct-bg" : "incorrect-bg") : ""}`}>
-      <div className="content-wrapper">
-          <div 
-          className="question-text" 
-          onClick={() => speak(questions[currentQuestion].question)}
-          style={{ cursor: "pointer", textDecoration: "underline" }}
-          >
-          {questions[currentQuestion].question}
+    <div className="flex justify-center pt-5 px-4">
+      <div className={`
+        rounded-2xl shadow-lg p-6 max-w-xl w-full border transition-all duration-300
+        ${submitted ? (isCorrect ? "border-green-400" : "border-red-400") : "border-gray-200 dark:border-neutral-700"}
+      `}>
+        
+        <h2 className="text-xl font-semibold mb-4 text-center text-gray-800 dark:text-gray-100">{quizName}</h2>
+  
+        <div className="quiz-container">
+          <div className="content-wrapper">
+            <div
+              className="question-text text-lg font-medium mb-4 text-center cursor-pointer underline text-gray-900 dark:text-white"
+              onClick={() => speak(questions[currentQuestion].question)}
+            >
+              {questions[currentQuestion].question}
+            </div>
+  
+            <input
+              ref={inputRef}
+              type="text"
+              value={userAnswer}
+              onChange={(e) => setUserAnswer(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && (!submitted ? handleSubmit() : nextQuestion())}
+              className="w-full border rounded-md px-3 py-2 mb-3 bg-white dark:bg-neutral-700 text-gray-900 dark:text-white
+                         placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              autoFocus
+            />
+  
+            {submitted && (
+              <div className={`feedback-text mb-3 text-center font-medium ${isCorrect ? "text-green-400" : "text-red-400"}`}>
+                {feedback}
+              </div>
+            )}
           </div>
-        <input
-          ref={inputRef}
-          type="text"
-          value={userAnswer}
-          onChange={(e) => setUserAnswer(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && (!submitted ? handleSubmit() : nextQuestion())}
-          className="visible-input"
-          autoFocus
-        />
-        {submitted && <div className="feedback-text">{feedback}</div>}
-      </div>
-      <div className="button-container">
-        <button onClick={handleSubmit} disabled={submitted} className="submit-button">Submit</button>
-        {submitted && <button onClick={nextQuestion}>Next</button>}
-        <button onClick={() => setQuizFinished(true)} className="stop-button">Stop Quiz</button>
+  
+          <div className="button-container flex justify-center gap-4 mt-4">
+            <button
+              onClick={handleSubmit}
+              disabled={submitted}
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:bg-gray-500 dark:disabled:bg-neutral-600"
+            >
+              Submit
+            </button>
+  
+            {submitted && (
+              <button
+                onClick={nextQuestion}
+                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+              >
+                Next
+              </button>
+            )}
+  
+            <button
+              onClick={() => setQuizFinished(true)}
+              className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 dark:bg-neutral-600 dark:text-white"
+            >
+              Stop Quiz
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
+  
+  
 }
 
 const normalizeAnswer = (text: string) => toHiragana(text.trim()).normalize("NFKC").replace(/\s+/g, "");

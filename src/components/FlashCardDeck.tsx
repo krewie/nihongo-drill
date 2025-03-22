@@ -2,13 +2,13 @@ import { useSlidingKanjiDeck } from "@/hooks/useSlidingDeck";
 import { useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 import { Button } from "./ui/button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function FlashCardDeck() {
+export default function FlashCardDeck({ jlpt }: { jlpt: number }) {
   const [muted, setMuted] = useState(false);
   const [rate, setRate] = useState(1.0);
   const [flipped, setFlipped] = useState(false);
-
+  
   const {
     currentCard,
     loading,
@@ -16,7 +16,7 @@ export default function FlashCardDeck() {
     prev,
     canGoBack,
     canGoForward,
-  } = useSlidingKanjiDeck({ chunkSize: 20, windowSize: 60 });
+  } = useSlidingKanjiDeck({ chunkSize: 20, windowSize: 60, jlpt });
 
   const speak = (text: string) => {
     if (muted || !window.speechSynthesis) return;
@@ -39,7 +39,7 @@ export default function FlashCardDeck() {
     <div className="flex flex-col items-center">
       {currentCard && (
         <motion.div
-          className="relative border rounded-2xl p-6 text-center shadow-md w-full max-w-xs h-[36rem] mt-6"
+          className="relative border rounded-2xl p-6 text-center shadow-md w-full max-w-xs h-[36rem] mt-6 perspective"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.5}
@@ -50,112 +50,92 @@ export default function FlashCardDeck() {
               next();
             }
           }}
-          initial={{ x: 0, opacity: 1 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: -100, opacity: 0 }}
-          transition={{ duration: 0.3 }}
         >
           {/* 🔘 Top button row */}
           <div className="absolute top-2 left-2 right-2 z-10 flex justify-between items-center px-2">
-            {/* Mute */}
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setMuted(!muted)}
-            >
+            <Button variant="outline" size="icon" onClick={() => setMuted(!muted)}>
               {muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
             </Button>
 
-            {/* Flip */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setFlipped(!flipped)}
-            >
-              {flipped ? "Show Front" : "Flip Card"}
+            <Button variant="outline" size="sm" onClick={() => setFlipped(!flipped)}>
+              Flip Card
             </Button>
 
-            {/* Rate */}
             <Button variant="outline" size="sm" onClick={toggleRate}>
-              {rate === 0.5 ? "🐢 Slow" : "🧍 Normal"}
+              {rate}
             </Button>
           </div>
 
-          {/* 🔄 Card Content */}
-          {flipped ? (
-            <div className="mt-14">
-              {/* Kanji (still clickable for speech) */}
-              <div
-                className="text-6xl sm:text-7xl mt-6"
-                onClick={() => speak(currentCard.kanji)}
+          {/* 🔄 Animated flip container */}
+          <div className="relative w-full h-full mt-10">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={flipped ? "back" : "front"}
+                initial={{ rotateY: 90, opacity: 0 }}
+                animate={{ rotateY: 0, opacity: 1 }}
+                exit={{ rotateY: -90, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="absolute inset-0 w-full h-full backface-hidden"
               >
-                {currentCard.kanji}
-              </div>
+                {flipped ? (
+                  <div className="overflow-auto px-2 text-left text-sm">
+                    <div
+                      className="text-6xl sm:text-9xl text-center cursor-pointer mb-4"
+                      onClick={() => speak(currentCard.kanji)}
+                    >
+                      {currentCard.kanji}
+                    </div>
 
-              {/* Meanings */}
-              <div className="text-sm font-medium mb-1 pt-5">
-                {currentCard.meanings?.join(", ") || "—"}
-              </div>
+                    <div className="font-medium mb-1">
+                      {currentCard.meanings?.join(", ") || "—"}
+                    </div>
 
-              {/* JLPT / Strokes */}
-              <div className="text-xs text-gray-500 mb-2">
-                JLPT: {currentCard.jlpt ?? "-"} &nbsp;|&nbsp; Strokes: {currentCard.stroke_count}
-              </div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                      JLPT: {currentCard.jlpt ?? "-"} | Strokes: {currentCard.stroke_count}
+                    </div>
 
-              {/* Readings */}
-              <div className="text-xs space-y-1 mb-2">
-                <div
-                  onClick={() =>
-                    speak((currentCard.kun_reading ?? []).map((r) => r.value).join(", "))
-                  }
-                >
-                  <strong>Kun:</strong>{" "}
-                  {(currentCard.kun_reading ?? []).map((r) => r.value).join(", ") || "—"}
-                </div>
-                <div
-                  onClick={() =>
-                    speak((currentCard.on_reading ?? []).map((r) => r.value).join(", "))
-                  }
-                >
-                  <strong>On:</strong>{" "}
-                  {(currentCard.on_reading ?? []).map((r) => r.value).join(", ") || "—"}
-                </div>
-              </div>
+                    <div className="space-y-1 mb-2">
+                      <div onClick={() => speak((currentCard.kun_reading ?? []).map((r) => r.value).join(", "))}>
+                        <strong>Kun:</strong> {(currentCard.kun_reading ?? []).map((r) => r.value).join(", ") || "—"}
+                      </div>
+                      <div onClick={() => speak((currentCard.on_reading ?? []).map((r) => r.value).join(", "))}>
+                        <strong>On:</strong> {(currentCard.on_reading ?? []).map((r) => r.value).join(", ") || "—"}
+                      </div>
+                    </div>
 
-              {/* Words */}
-              <div className="text-left text-xs">
-                <strong>Words:</strong>
-                <ul className="list-disc list-inside">
-                  {(currentCard.word ?? []).slice(0, 3).map((w, i) => (
-                    <li key={i}>{(w.meanings ?? []).join("; ")}</li>
-                  ))}
-                </ul>
-              </div>
+                    <div>
+                      <strong>Words:</strong>
+                      <ul className="list-disc list-inside">
+                        {(currentCard.word ?? []).slice(0, 3).map((w, i) => (
+                          <li key={i}>{(w.meanings ?? []).join("; ")}</li>
+                        ))}
+                      </ul>
+                    </div>
 
-              {/* JPDB Link */}
-              <Button asChild variant="ghost" size="sm" className="text-xs mt-3">
-                <a
-                  href={`https://jpdb.io/kanji/${encodeURIComponent(currentCard.kanji)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View on JPDB →
-                </a>
-              </Button>
-            </div>
-          ) : (
-            // 🀄️ Front side — big Kanji only
-            <div
-              className="text-6xl sm:text-7xl mt-20 cursor-pointer"
-              onClick={() => speak(currentCard.kanji)}
-            >
-              {currentCard.kanji}
-            </div>
-          )}
+                    <Button asChild variant="ghost" size="sm" className="text-xs mt-3">
+                      <a
+                        href={`https://jpdb.io/kanji/${encodeURIComponent(currentCard.kanji)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View on JPDB →
+                      </a>
+                    </Button>
+                  </div>
+                ) : (
+                  <div
+                    className="flex items-center justify-center h-full w-full text-6xl sm:text-9xl cursor-pointer"
+                    onClick={() => speak(currentCard.kanji)}
+                  >
+                    {currentCard.kanji}
+                  </div>
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </motion.div>
       )}
 
-      {/* 🔁 Navigation Buttons */}
       <div className="flex justify-center gap-4 mt-6">
         <Button onClick={prev} disabled={!canGoBack} variant="outline">
           Previous

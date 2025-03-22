@@ -1,5 +1,5 @@
 import FlashCardDeck from "@/components/FlashCardDeck";
 
-export function FlashDrills() {
-  return <FlashCardDeck  />;
+export default function FlashDrills({ jlpt }: { jlpt: number }) {
+  return <FlashCardDeck jlpt={jlpt} />;
 }

@@ -139,3 +139,9 @@ button:focus-visible {
     @apply bg-background text-foreground;
   }
 }
+
+/* Add this to your styles.css or globals.css */
+.backface-hidden {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
