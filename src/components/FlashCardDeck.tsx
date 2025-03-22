@@ -1,14 +1,18 @@
-import { useSlidingKanjiDeck } from "@/hooks/useSlidingDeck";
 import { useState } from "react";
+import { useSlidingKanjiDeck } from "@/hooks/useSlidingDeck";
 import { Volume2, VolumeX } from "lucide-react";
 import { Button } from "./ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function FlashCardDeck({ jlpt }: { jlpt: number }) {
+type FlashCardDeckProps = {
+  jlpt: number;
+};
+
+export default function FlashCardDeck({ jlpt }: FlashCardDeckProps) {
   const [muted, setMuted] = useState(false);
   const [rate, setRate] = useState(1.0);
   const [flipped, setFlipped] = useState(false);
-  
+
   const {
     currentCard,
     loading,
@@ -36,10 +40,10 @@ export default function FlashCardDeck({ jlpt }: { jlpt: number }) {
   }
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center justify-center grow min-h-0 px-2">
       {currentCard && (
         <motion.div
-          className="relative border rounded-2xl p-6 text-center shadow-md w-full max-w-xs h-[36rem] mt-6 perspective"
+          className="relative border rounded-2xl p-4 text-center shadow-md w-full max-w-xs aspect-[2/3] perspective"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.5}
@@ -51,7 +55,7 @@ export default function FlashCardDeck({ jlpt }: { jlpt: number }) {
             }
           }}
         >
-          {/* 🔘 Top button row */}
+          {/* Top Controls */}
           <div className="absolute top-2 left-2 right-2 z-10 flex justify-between items-center px-2">
             <Button variant="outline" size="icon" onClick={() => setMuted(!muted)}>
               {muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
@@ -66,8 +70,8 @@ export default function FlashCardDeck({ jlpt }: { jlpt: number }) {
             </Button>
           </div>
 
-          {/* 🔄 Animated flip container */}
-          <div className="relative w-full h-full mt-10">
+          {/* Flip container */}
+          <div className="relative w-full h-full">
             <AnimatePresence mode="wait">
               <motion.div
                 key={flipped ? "back" : "front"}
@@ -78,9 +82,9 @@ export default function FlashCardDeck({ jlpt }: { jlpt: number }) {
                 className="absolute inset-0 w-full h-full backface-hidden"
               >
                 {flipped ? (
-                  <div className="overflow-auto px-2 text-left text-sm">
+                  <div className="overflow-auto px-2 text-left text-sm h-full pb-4">
                     <div
-                      className="text-6xl sm:text-9xl text-center cursor-pointer mb-4"
+                      className="text-6xl sm:text-7xl text-center cursor-pointer mb-4"
                       onClick={() => speak(currentCard.kanji)}
                     >
                       {currentCard.kanji}
@@ -136,6 +140,7 @@ export default function FlashCardDeck({ jlpt }: { jlpt: number }) {
         </motion.div>
       )}
 
+      {/* Navigation Buttons */}
       <div className="flex justify-center gap-4 mt-6">
         <Button onClick={prev} disabled={!canGoBack} variant="outline">
           Previous
