@@ -43,7 +43,7 @@ export default function FlashCardDeck({ jlpt }: FlashCardDeckProps) {
     <div className="flex flex-col items-center justify-center grow min-h-0 px-2">
       {currentCard && (
         <motion.div
-          className="relative border rounded-2xl p-4 text-center shadow-md w-full max-w-xs aspect-[2/3] perspective"
+          className="relative w-full max-w-[420px] aspect-[2/3] border rounded-2xl shadow-md"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.5}
@@ -84,7 +84,7 @@ export default function FlashCardDeck({ jlpt }: FlashCardDeckProps) {
                 {flipped ? (
                   <div className="overflow-auto px-2 text-left text-sm h-full pb-4">
                     <div
-                      className="text-6xl sm:text-7xl text-center cursor-pointer pt-10 mb-4"
+                      className="text-6xl sm:text-7xl text-center cursor-pointer mt-5 pt-10 mb-4"
                       onClick={() => speak(currentCard.kanji)}
                     >
                       {currentCard.kanji}
