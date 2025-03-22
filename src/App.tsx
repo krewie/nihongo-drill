@@ -36,7 +36,7 @@ function App() {
   const isFlashDeck = location.pathname === "/flashdrill";
 
   return (
-    <div className="scale-[1.6] origin-top-left w-[62.5%] h-[62.5%] overflow-hidden fixed top-0 left-0">
+    <div className="min-h-screen flex flex-col px-4 py-6">
       <h1 className="scroll-m-20 border-b pb-5 text-3xl font-semibold tracking-tight first:mt-0">
         クリスの日本語ドリル！
       </h1>

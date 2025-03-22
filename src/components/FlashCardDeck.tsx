@@ -84,7 +84,7 @@ export default function FlashCardDeck({ jlpt }: FlashCardDeckProps) {
                 {flipped ? (
                   <div className="overflow-auto px-2 text-left text-sm h-full pb-4">
                     <div
-                      className="text-6xl sm:text-7xl text-center cursor-pointer mb-4"
+                      className="text-6xl sm:text-7xl text-center cursor-pointer pt-10 mb-4"
                       onClick={() => speak(currentCard.kanji)}
                     >
                       {currentCard.kanji}
