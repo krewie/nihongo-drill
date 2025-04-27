@@ -91,7 +91,7 @@ export default function FlashCardDeck({ jlpt }: FlashCardDeckProps) {
                     </div>
 
                     <div className="font-medium mb-1">
-                      {currentCard.meanings?.join(", ") || "—"}
+                      {currentCard.meaning?.join(", ") || "—"}
                     </div>
 
                     <div className="text-xs text-gray-500 dark:text-gray-400 mb-2">

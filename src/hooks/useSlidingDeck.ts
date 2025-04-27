@@ -3,7 +3,7 @@ import { supabase } from "@/lib/supabaseClient";
 
 interface KanjiCard {
   kanji: string;
-  meanings: string[];
+  meaning: string[];
   jlpt_grade: string;
   stroke_number: number;
   kun_reading?: { value: string }[];
