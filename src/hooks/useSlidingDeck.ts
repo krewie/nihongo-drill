@@ -4,11 +4,11 @@ import { supabase } from "@/lib/supabaseClient";
 interface KanjiCard {
   kanji: string;
   meanings: string[];
-  jlpt: string;
-  stroke_count: number;
+  jlpt_grade: string;
+  stroke_number: number;
   kun_reading?: { value: string }[];
   on_reading?: { value: string }[];
-  word?: { meanings: string[] }[];
+  sample_word?: { kanji: string, meaning: string, reading: string }[];
 }
 
 interface UseSlidingKanjiDeckConfig {
@@ -34,20 +34,26 @@ export function useSlidingKanjiDeck({
       const to = from + chunkSize - 1;
 
       let query = supabase
-      .from("kanji_with_kun_and_on")
+      .from('kanji')
       .select(`
-        kanji, meanings, stroke_count, jlpt,
-        kun_reading(value),
-        on_reading(value),
-        word(meanings)
-      `)
-      .range(from, to);
-    
-
-      // ✅ Only add .eq if jlpt is provided
-      if (jlpt !== 0) {
-        query = query.eq("jlpt", jlpt.toString());
-      }
+        id,
+        serial_number,
+        kanji,
+        meaning,
+        origin,
+        on_reading,
+        kun_reading,
+        header_radical,
+        stroke_number,
+        jlpt_grade,
+        frequency,
+        sample_word ( kanji, reading, meaning ),
+        kanji_component ( component )
+      `);
+  
+    if (jlpt !== 0) {
+      query = query.eq('jlpt_grade', jlpt); // 🛠 Notice: field is jlpt_grade not jlpt
+    }
 
       // ✅ Always apply the range
       query = query.range(from, to);
@@ -61,14 +67,15 @@ export function useSlidingKanjiDeck({
       }
 
       if (data && data.length > 0) {
+        console.log(data);
         const filtered = data.filter((kanji: KanjiCard) => {
           return (
             kanji.kun_reading &&
             kanji.kun_reading.length > 0 &&
             kanji.on_reading &&
             kanji.on_reading.length > 0 &&
-            kanji.word &&
-            kanji.word.length > 0
+            kanji.sample_word &&
+            kanji.sample_word.length > 0
           );
         });
       

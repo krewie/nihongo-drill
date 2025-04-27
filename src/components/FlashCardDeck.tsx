@@ -95,23 +95,28 @@ export default function FlashCardDeck({ jlpt }: FlashCardDeckProps) {
                     </div>
 
                     <div className="text-xs text-gray-500 dark:text-gray-400 mb-2">
-                      JLPT: {currentCard.jlpt ?? "-"} | Strokes: {currentCard.stroke_count}
+                      JLPT: {currentCard.jlpt_grade ?? "-"} | Strokes: {currentCard.stroke_number}
                     </div>
 
                     <div className="space-y-1 mb-2">
-                      <div onClick={() => speak((currentCard.kun_reading ?? []).map((r) => r.value).join(", "))}>
-                        <strong>Kun:</strong> {(currentCard.kun_reading ?? []).map((r) => r.value).join(", ") || "—"}
+                      <div onClick={() => speak((currentCard.kun_reading ?? []).map((r) => r).join(", "))}>
+                        <strong>Kun:</strong> {(currentCard.kun_reading ?? []).map((r) => r).join(", ") || "—"}
                       </div>
-                      <div onClick={() => speak((currentCard.on_reading ?? []).map((r) => r.value).join(", "))}>
-                        <strong>On:</strong> {(currentCard.on_reading ?? []).map((r) => r.value).join(", ") || "—"}
+                      <div onClick={() => speak((currentCard.on_reading ?? []).map((r) => r).join(", "))}>
+                        <strong>On:</strong> {(currentCard.on_reading ?? []).map((r) => r).join(", ") || "—"}
                       </div>
                     </div>
 
                     <div>
                       <strong>Words:</strong>
                       <ul className="list-disc list-inside">
-                        {(currentCard.word ?? []).slice(0, 3).map((w, i) => (
-                          <li key={i}>{(w.meanings ?? []).join("; ")}</li>
+                        {(currentCard.sample_word ?? []).map((w, i) => (
+                          <li key={i} className="flex gap-2">
+                          <span>「{w.kanji}」</span>
+                          <span>{w.reading}</span>
+                          <span>{w.meaning}</span>
+                        </li>
+                        
                         ))}
                       </ul>
                     </div>
