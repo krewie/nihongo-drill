@@ -130,6 +130,14 @@ export default function FlashCardDeck({ jlpt }: FlashCardDeckProps) {
                         View on JPDB →
                       </a>
                     </Button>
+                    {currentCard.origin && currentCard.origin !== "" && (
+                      <div className="mt-4">
+                        <div className="block text-xs font-medium mb-1"><strong>Origin</strong></div>
+                        <div className="w-full h-40 p-3 overflow-auto text-sm rounded bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 whitespace-pre-wrap leading-relaxed">
+                          {currentCard.origin}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ) : (
                   <div
