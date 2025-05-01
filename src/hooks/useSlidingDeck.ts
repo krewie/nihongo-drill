@@ -67,18 +67,10 @@ export function useSlidingKanjiDeck({
       }
 
       if (data && data.length > 0) {
-        console.log(data);
-        const filtered = data.filter((kanji: KanjiCard) => {
-          return (
-            kanji.kun_reading &&
-            kanji.kun_reading.length > 0 &&
-            kanji.on_reading &&
-            kanji.on_reading.length > 0 &&
-            kanji.sample_word &&
-            kanji.sample_word.length > 0
-          );
+        const filtered = (data ?? []).filter((kanji: KanjiCard) => {
+          return typeof kanji.kanji === "string" && kanji.kanji.length > 0;
         });
-      
+        
         if (filtered.length > 0) {
           setKanjiList((prev) => {
             const merged = [...prev, ...filtered];
