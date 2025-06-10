@@ -26,6 +26,7 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
+import { PSX } from "./pages/PSX";
 
 function App() {
   const navigate = useNavigate();
@@ -43,7 +44,19 @@ function App() {
 
   <div className="flex items-center gap-2 pt-5 flex-wrap">
     <Button onClick={() => navigate("/")} variant="outline">🏠</Button>
-
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">コンテント</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuItem onClick={() => navigate("/psx")}>
+          PSX 🚧
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate("/test123")}>
+          🚧
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline">📚 Select a Quiz ▼</Button>
@@ -104,6 +117,7 @@ function App() {
 
   <Routes>
     <Route path="/" element={<Home />} />
+    <Route path="/psx" element={<PSX />} />
     <Route path="/demoquiz" element={<DemoQuiz />} />
     <Route path="/pronounsquiz" element={<PronounsQuiz />} />
     <Route path="/weekdaysquiz" element={<WeekDaysQuiz />} />
