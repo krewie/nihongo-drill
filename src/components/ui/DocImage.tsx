@@ -6,7 +6,7 @@ type DocImageProps = {
   className?: string;
 };
 const imgClass = "w-full my-4 rounded-lg border border-gray-700 max-w-md shadow-md";
-const DocImage: React.FC<DocImageProps> = ({ src, alt, caption, className = imgClass }) => {
+const DocImage: React.FC<DocImageProps> = ({ src, caption, className = imgClass }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

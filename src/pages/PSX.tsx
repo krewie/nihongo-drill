@@ -105,11 +105,11 @@ export function PSX() {
         <br></br>
         <p>You can also just snap these pins if you would like to but youll never be able to use em again, keep in mind that the point of this exercise is to disconnect these pins from the board.</p>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-            <DocImage src={cx1} alt="Image 1" />
-            <DocImage src={cx2} alt="Image 2" />
-            <DocImage src={cx3} alt="Image 3" />
-            <DocImage src={cx4} alt="Image 4" />
-            <DocImage src={cx5} alt="Image 5" />
+            <DocImage src={cx1} />
+            <DocImage src={cx2} />
+            <DocImage src={cx3} />
+            <DocImage src={cx4} />
+            <DocImage src={cx5} />
         </div>
 
         <p>Now the turn the board on its side and prepare to solder the psx station kit</p>
