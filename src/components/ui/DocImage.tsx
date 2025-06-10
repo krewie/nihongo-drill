@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 type DocImageProps = {
   src: string;
-  alt: string;
   caption?: string;
   className?: string;
 };
@@ -13,7 +12,7 @@ const DocImage: React.FC<DocImageProps> = ({ src, alt, caption, className = imgC
   return (
     <>
       <div className="my-4 cursor-pointer" onClick={() => setIsOpen(true)}>
-        <img src={src} alt={alt} className={className} />
+        <img src={src} className={className} />
         {caption && <p className="text-sm text-center text-gray-400 mt-1">{caption}</p>}
       </div>
 
@@ -22,7 +21,7 @@ const DocImage: React.FC<DocImageProps> = ({ src, alt, caption, className = imgC
           className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
           onClick={() => setIsOpen(false)}
         >
-          <img src={src} alt={alt} className="max-w-full max-h-full rounded-lg shadow-xl" />
+          <img src={src} className="max-w-full max-h-full rounded-lg shadow-xl" />
         </div>
       )}
     </>
