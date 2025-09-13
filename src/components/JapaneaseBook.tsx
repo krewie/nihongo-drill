@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { JPBookData, JPPage } from "@/models/book";
 
 /** Utility types */
@@ -40,27 +40,32 @@ export default function JapaneseBook({
 }) {
   const allPages = useMemo(() => flattenBook(data), [data]);
 
-  // Compute maxRightIndex FIRST (used by normalizer)
-  const maxRightIndex = useMemo(
-    () => (allPages.length % 2 === 0 ? allPages.length - 2 : allPages.length - 1),
-    [allPages.length]
-  );
+    const [doublePage, setDoublePage] = useState(true);
 
-  function normalizeRightPageIndex(i: number) {
-    const clamped = Math.max(0, Math.min(i, allPages.length > 1 ? maxRightIndex : 0));
-    // right page should be even index so spreads line up: 0,2,4,...
-    return clamped % 2 === 0 ? clamped : clamped - 1;
-  }
+    const maxIndex = useMemo(() => {
+    if (allPages.length === 0) return 0;
+    return doublePage
+        ? (allPages.length % 2 === 0 ? allPages.length - 2 : allPages.length - 1) // last RIGHT page (even)
+        : allPages.length - 1; // last page
+    }, [allPages.length, doublePage]);
 
-  // Initialise with 0, then normalise in an effect (simplest + safe)
-  const [rightPageIdx, setRightPageIdx] = useState(0);
-  const [showFurigana, setShowFurigana] = useState(true);
-  const [vertical, setVertical] = useState(verticalDefault);
-  const [fontPx, setFontPx] = useState(20);
+    // Normalizer: only snap to even when in double-page mode
+    const normalizeIndex = useCallback((i: number) => {
+    let idx = Math.max(0, Math.min(i, maxIndex)); // clamp
+    if (doublePage) idx = idx % 2 === 0 ? idx : idx - 1; // keep right page even
+    return idx;
+    }, [maxIndex, doublePage]);
 
-  useEffect(() => {
-    setRightPageIdx((i) => normalizeRightPageIndex(i));
-  }, [allPages.length, maxRightIndex]);
+    // state
+    const [rightPageIdx, setRightPageIdx] = useState(0);
+    const [showFurigana, setShowFurigana] = useState(true);
+    const [vertical, setVertical] = useState(verticalDefault);
+    const [fontPx, setFontPx] = useState(20);
+
+    // keep index valid whenever page count or mode changes
+    useEffect(() => {
+    setRightPageIdx(i => normalizeIndex(i));
+    }, [normalizeIndex]);
 
   // Keyboard shortcuts
   const rootRef = useRef<HTMLDivElement | null>(null);
@@ -71,18 +76,19 @@ export default function JapaneseBook({
       else if (e.key === "+" || e.key === "=") setFontPx((n) => Math.min(30, n + 2));
       else if (e.key === "-") setFontPx((n) => Math.max(14, n - 2));
       else if (e.key === "Home") setRightPageIdx(0);
-      else if (e.key === "End") setRightPageIdx(maxRightIndex);
+      else if (e.key === "End") setRightPageIdx(maxIndex);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [maxRightIndex]);
+  }, [maxIndex]);
 
-  function prevSpread() {
-    setRightPageIdx((i) => normalizeRightPageIndex(i - 2));
-  }
-  function nextSpread() {
-    setRightPageIdx((i) => normalizeRightPageIndex(i + 2));
-  }
+function prevSpread() {
+  setRightPageIdx((i) => normalizeIndex(i - (doublePage ? 2 : 1)));
+}
+function nextSpread() {
+  setRightPageIdx((i) => normalizeIndex(i + (doublePage ? 2 : 1)));
+}
+
 
   const right = allPages[rightPageIdx];
   const left = allPages[rightPageIdx + 1];
@@ -121,6 +127,20 @@ export default function JapaneseBook({
             <span className="text-sm text-neutral-600">{vertical ? "縦書き" : "横書き"}</span>
           </div>
           <div className="flex items-center gap-2">
+            <button
+  onClick={() => setDoublePage((v) => !v)}
+  className="
+    px-3 py-1 rounded-lg border hover:shadow-sm
+    border-neutral-300 dark:border-neutral-700
+    bg-white dark:bg-neutral-900
+    text-neutral-900 dark:text-neutral-100
+    hover:bg-neutral-50 dark:hover:bg-neutral-800
+    focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:focus-visible:ring-indigo-400
+  "
+>
+  {doublePage ? "1" : "2"}
+</button>
+
             <button className="px-3 py-1 rounded-lg border hover:shadow-sm dark:border-neutral-700
                                 bg-white dark:bg-neutral-900
                                 text-neutral-500" onClick={() => setVertical((v) => !v)}>
@@ -156,7 +176,7 @@ export default function JapaneseBook({
             <article className={pageBox}>
               <header className="text-xs text-neutral-500 dark:text-neutral-400 px-3 py-2 flex items-center justify-between">
                 <span>{right?.chapterTitle}</span>
-                <span>p.{labelOf(right)}</span>
+                {right && <span>p.{labelOf(right)}</span>}
               </header>
               <div style={pageStyleWriting} className="h-[calc(100%-40px)]">
                 <div
@@ -168,10 +188,11 @@ export default function JapaneseBook({
             </article>
 
             {/* LEFT page */}
+            {doublePage && left && (
             <article className={pageBox}>
               <header className="text-xs text-neutral-500 dark:text-neutral-400 px-3 py-2 flex items-center justify-between">
                 <span>{left?.chapterTitle ?? ""}</span>
-                <span>{left ? `p.${labelOf(left)}` : ""}</span>
+                {left && <span>p.{labelOf(left)}</span>}
               </header>
               <div style={pageStyleWriting} className="h-[calc(100%-40px)]">
                 <div
@@ -181,6 +202,7 @@ export default function JapaneseBook({
                 />
               </div>
             </article>
+            )}
           </div>
 
           {/* Pager controls */}
@@ -207,7 +229,7 @@ export default function JapaneseBook({
               <PageJump
                 value={rightPageIdx + 1}
                 max={allPages.length}
-                onJump={(oneBased) => setRightPageIdx(normalizeRightPageIndex(oneBased - 1))}
+                onJump={(oneBased) => setRightPageIdx(normalizeIndex(oneBased - 1))}
               />
               <span className="opacity-70">/ {allPages.length}</span>
             </div>
@@ -223,7 +245,7 @@ export default function JapaneseBook({
                 disabled:opacity-50 disabled:cursor-not-allowed
                 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:focus-visible:ring-indigo-400
                 "
-              disabled={rightPageIdx >= maxRightIndex}
+              disabled={rightPageIdx >= maxIndex}
               title="次の見開き"
             >
               次へ →
