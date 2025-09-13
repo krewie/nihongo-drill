@@ -1,24 +1,22 @@
 import DocImage from "@/components/ui/DocImage";
-import psxPic from "../assets/psxinstall/ps1.jpg";
-import pu18_board_front from "../assets/psxinstall/pu18board_front.jpg";
-import pu18_board_back from "../assets/psxinstall/pu18board_back.jpg";
-import pu18boardfcircuitdia from "../assets/psxinstall/pu18board_circuit_dia_1.jpg";
-import cx1 from "../assets/psxinstall/cx1.jpg";
-import cx2 from "../assets/psxinstall/cx2.jpg";
-import cx3 from "../assets/psxinstall/cx3.jpg";
-import cx4 from "../assets/psxinstall/cx4.jpg";
-import cx5 from "../assets/psxinstall/cx5.jpg";
-import solderingpoints from "../assets/psxinstall/xstationboard.jpg";
-import scrapepoints from "../assets/psxinstall/xstationpu18scrape.jpg";
-import boardresult from "../assets/psxinstall/boardresult.jpg";
-import solderAPL from "../assets/psxinstall/solderAPL.jpg";
-import solderAPL2 from "../assets/psxinstall/solderAPL2.jpg";
+import psxPic from "../../assets/psxinstall/ps1.jpg";
+import pu18_board_front from "../../assets/psxinstall/pu18board_front.jpg";
+import pu18_board_back from "../../assets/psxinstall/pu18board_back.jpg";
+import pu18boardfcircuitdia from "../../assets/psxinstall/pu18board_circuit_dia_1.jpg";
+import cx1 from "../../assets/psxinstall/cx1.jpg";
+import cx2 from "../../assets/psxinstall/cx2.jpg";
+import cx3 from "../../assets/psxinstall/cx3.jpg";
+import cx4 from "../../assets/psxinstall/cx4.jpg";
+import cx5 from "../../assets/psxinstall/cx5.jpg";
+import solderingpoints from "../../assets/psxinstall/xstationboard.jpg";
+import scrapepoints from "../../assets/psxinstall/xstationpu18scrape.jpg";
+import boardresult from "../../assets/psxinstall/boardresult.jpg";
+import solderAPL from "../../assets/psxinstall/solderAPL.jpg";
+import solderAPL2 from "../../assets/psxinstall/solderAPL2.jpg";
 
 
 
 export function PSX() {
-  //return "すべてのぺーエスーエックス";
-
   return (
     <div className="max-w-3xl mx-auto p-6 text-left">
         <h1 className="text-3xl font-bold mb-4">手順書「てじゅんしょ」</h1>

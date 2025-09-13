@@ -26,7 +26,8 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
-import { PSX } from "./pages/PSX";
+import { PSX } from "./pages/docs/PSX";
+import { SH1 } from "./pages/books/SH1";
 
 function App() {
   const navigate = useNavigate();
@@ -39,9 +40,11 @@ function App() {
   return (
 <div className="min-h-screen w-full max-w-screen-lg mx-auto px-4 py-6">
   <h1 className="scroll-m-20 border-b pb-5 text-3xl font-semibold tracking-tight first:mt-0">
-    クリスの日本語ドリル！
+    クリスの全て入手
   </h1>
-
+  <p className="italic">
+    My own little slice of life...
+  </p>
   <div className="flex items-center gap-2 pt-5 flex-wrap">
     <Button onClick={() => navigate("/")} variant="outline">🏠</Button>
     <DropdownMenu>
@@ -52,8 +55,8 @@ function App() {
         <DropdownMenuItem onClick={() => navigate("/psx")}>
           PSX 🚧
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => navigate("/test123")}>
-          🚧
+        <DropdownMenuItem onClick={() => navigate("/sh1")}>
+          サイレント・ヒル🚧
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
@@ -118,6 +121,7 @@ function App() {
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/psx" element={<PSX />} />
+    <Route path="/sh1" element={<SH1 />} />
     <Route path="/demoquiz" element={<DemoQuiz />} />
     <Route path="/pronounsquiz" element={<PronounsQuiz />} />
     <Route path="/weekdaysquiz" element={<WeekDaysQuiz />} />
@@ -135,7 +139,13 @@ function App() {
 }
 
 function Home() {
-  return <p>Welcome! Select a quiz to begin.</p>;
+  return (
+  <div>
+    <p className="mt-4">皆さん、ようこそ.</p>
+    <p className="mt-4">このサイトでは楽しいものを集めています。</p>
+    <p className="mt-4">だから、このサイトの全てのコンテンツは私が作りました。</p>
+  </div>
+  );
 }
 
 export default App;
