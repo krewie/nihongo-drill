@@ -98,7 +98,7 @@ function nextSpread() {
     : { writingMode: "horizontal-tb", textOrientation: "mixed", lineHeight: 1.9, letterSpacing: "0.02em" };
 
   const pageBox =
-    "w-[460px] h-[740px] rounded-2xl shadow border border-neutral-200 overflow-hidden " + 
+    "w-[360px] h-[540px] rounded-2xl shadow border border-neutral-200 overflow-hidden " + 
     "dark:border-neutral-700 dark:bg-neutral-900";
   const pageInner: React.CSSProperties = {
     fontFamily:
