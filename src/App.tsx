@@ -36,6 +36,16 @@ function App() {
   const [selectedJlpt, setSelectedJlpt] = useState<number>(0);
 
   const isFlashDeck = location.pathname === "/flashdrill";
+  const isBookReader = location.pathname.startsWith("/sh1");
+
+  if (isBookReader) {
+    // render *only* the book reader route, no nav, no header
+    return (
+      <Routes>
+        <Route path="/sh1" element={<SH1 />} />
+      </Routes>
+    );
+  }
 
   return (
 <div className="min-h-screen w-full max-w-screen-lg mx-auto px-4 py-6">
