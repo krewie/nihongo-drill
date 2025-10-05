@@ -142,33 +142,32 @@ export default function JapaneseBook({
       ? ((rightPageIdx + 1) / allPages.length) * 100
       : 0;
 
-  // Measure viewport and compute page height and horizontal scale
-  useLayoutEffect(() => {
-    const calc = () => {
-      const vh =
-        (window as any).visualViewport?.height ?? window.innerHeight;
-      const toolbar = toolbarRef.current?.offsetHeight ?? 0;
-      const paddingY = 24; // total vertical padding inside the canvas wrapper
-      const availableH = Math.max(0, vh - toolbar - paddingY);
-      setPageH(availableH);
+  // 1) New: manual recalculation function (replaces useLayoutEffect body)
+const recalcLayout = useCallback(() => {
+  const vh = (window as any).visualViewport?.height ?? window.innerHeight;
+  const toolbar = toolbarRef.current?.offsetHeight ?? 0;
+  const paddingY = 24; // vertical padding inside the canvas wrapper
+  const availableH = Math.max(0, vh - toolbar - paddingY);
+  setPageH(availableH);
 
-      // aspect 2:3 -> width = H * 2/3
-      const pageW = (availableH * 2) / 3;
-      const gap = 16; // Tailwind gap-4
-      const pages = doublePage ? 2 : 1;
-      const desiredW = pages * pageW + (doublePage ? gap : 0);
+  // aspect 2:3 -> width = H * 2/3
+  const pageW = (availableH * 2) / 3;
+  const gap = 16; // Tailwind gap-4
+  const pages = doublePage ? 2 : 1;
+  const desiredW = pages * pageW + (doublePage ? gap : 0);
 
-      const containerW = rootRef.current?.clientWidth ?? window.innerWidth;
-      const horizontalPadding = 32; // px from px-4 on wrapper (left+right ~ 16+16)
-      const availableW = Math.max(0, containerW - horizontalPadding);
+  const containerW = rootRef.current?.clientWidth ?? window.innerWidth;
+  const horizontalPadding = 32; // px from px-4 on wrapper (left+right ~ 16+16)
+  const availableW = Math.max(0, containerW - horizontalPadding);
 
-      setScale(Math.min(1, availableW / desiredW));
-    };
+  setScale(Math.min(1, availableW / desiredW));
+}, [doublePage]);
 
-    calc();
-    window.addEventListener("resize", calc);
-    return () => window.removeEventListener("resize", calc);
-  }, [doublePage]);
+// 2) Optional: set an initial layout once on mount
+useEffect(() => {
+  recalcLayout();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   return (
     <div
@@ -212,6 +211,17 @@ export default function JapaneseBook({
               onClick={() => setVertical((v) => !v)}
             >
               {vertical ? "横書きにする" : "縦書きにする"}
+            </button>
+
+            <button
+              onClick={recalcLayout}
+              className="px-3 py-1 rounded-lg border hover:shadow-sm
+                        border-neutral-300 dark:border-neutral-700
+                        bg-white dark:bg-neutral-900
+                        text-neutral-900 dark:text-neutral-100"
+              title="recalc"
+            >
+              Fit viewport
             </button>
 
             <button
@@ -370,6 +380,7 @@ export default function JapaneseBook({
     </div>
   );
 }
+
 
 function PageJump({
   value,
