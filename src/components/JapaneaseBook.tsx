@@ -4,7 +4,6 @@ import React, {
   useMemo,
   useRef,
   useState,
-  useLayoutEffect,
 } from "react";
 import type { JPBookData, JPPage } from "@/models/book";
 
