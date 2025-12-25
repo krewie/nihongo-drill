@@ -28,7 +28,7 @@ export default function DocumentReader({ data }: BookReaderProps) {
                 <div
                 dangerouslySetInnerHTML={{ __html: page.html }}
                 style={{
-                    fontSize: "2.4rem",
+                    fontSize: "2.0rem",
                     lineHeight: 2,
                     marginBottom: "3rem",
                 }}
