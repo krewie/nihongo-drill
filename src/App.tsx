@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/select";
 import { PSX } from "./pages/docs/PSX";
 import { SH1 } from "./pages/books/SH1";
+import { BIO1remake } from "./pages/books/BIO1remake";
 
 function App() {
   const navigate = useNavigate();
@@ -43,6 +44,7 @@ function App() {
     return (
       <Routes>
         <Route path="/sh1" element={<SH1 />} />
+        <Route path="/bio1r" element={<BIO1remake />} />
       </Routes>
     );
   }
@@ -65,11 +67,24 @@ function App() {
         <DropdownMenuItem onClick={() => navigate("/psx")}>
           PSX 🚧
         </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">本とメモ</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
         <DropdownMenuItem onClick={() => navigate("/sh1")}>
-          サイレント・ヒル🚧
+          サイレント・ヒル 🚧
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate("/bio1r")}>
+          ビオハザード1のファルメモ 🚧
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+
+
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline">📚 Select a Quiz ▼</Button>
@@ -132,6 +147,7 @@ function App() {
     <Route path="/" element={<Home />} />
     <Route path="/psx" element={<PSX />} />
     <Route path="/sh1" element={<SH1 />} />
+    <Route path="/bio1r" element={<BIO1remake />} />
     <Route path="/demoquiz" element={<DemoQuiz />} />
     <Route path="/pronounsquiz" element={<PronounsQuiz />} />
     <Route path="/weekdaysquiz" element={<WeekDaysQuiz />} />

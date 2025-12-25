@@ -1,0 +1,69 @@
+{
+    "title": "ビオハザード(レメイク)のファイル",
+    "author": "カプコム",
+    "chapters": [
+        {
+            "id": "ch1",
+            "title": "ケネスのフィルム",
+            "pages": [
+                {
+                    "html": "ケネスの<ruby><rb>持</rb><rt>も</rt></ruby>っていたフイルムだ<br/><ruby><rb>映像機器</rb><rt>えいぞうきき</rt></ruby>が<ruby><rb>無</rb><rt>な</rt></ruby>いと<ruby>中身<rt>なかみ</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>できない"
+                }
+            ]
+        },
+        {
+            "id": "ch2",
+            "title": "呪いの書",
+            "pages": [
+                {
+                    "html": "<ruby>誰<rt>だれ</rt></ruby>かに<ruby>宛<rt>あ</rt></ruby>てたメッセージが<ruby>記<rt>しる</rt></ruby>されている"
+                },
+                {
+                    "html": "<ruby>四<rt>よっ</rt></ruby>つの<ruby>仮面<rt>かめん</rt></ruby>、すなわち、<br/> ロ<ruby>無<rt>な</rt></ruby>き<ruby>仮面<rt>かめん</rt></ruby> <br/> <ruby>鼻無<rt>はなな</rt></ruby>き<ruby>仮面<rt>かめん</rt></ruby> <br/> <ruby>目無<rt>めな</rt></ruby>き<ruby>仮面<rt>かめん</rt></ruby> <br/> <ruby>三<rt>みっ</rt></ruby>っ<ruby>全<rt>すべ</rt></ruby>て<ruby>無<rt>な</rt></ruby>き<ruby>仮面<rt>かめん</rt></ruby> <br/>"
+                },
+                {
+                    "html": ""
+                },
+                {
+                    "html": ""
+                },
+                {
+                    "html": ""
+                },
+                {
+                    "html": ""
+                },
+                {
+                    "html": ""
+                }
+            ]
+        },
+        {
+            "id": "ch3",
+            "title": "",
+            "pages": [
+                {
+                    "html": ""
+                },
+                {
+                    "html": ""
+                },
+                {
+                    "html": ""
+                },
+                {
+                    "html": ""
+                },
+                {
+                    "html": ""
+                },
+                {
+                    "html": ""
+                },
+                {
+                    "html": "<ruby><rb></rb><rt></rt></ruby>"
+                }
+            ]
+        }
+    ]
+}
