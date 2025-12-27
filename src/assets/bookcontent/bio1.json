@@ -13,7 +13,7 @@
         },
         {
             "id": "ch2",
-            "title": "呪いの書",
+            "title": "<ruby>呪い<rt>のろい</rt></ruby>の<ruby>書<rt>しょ</rt></ruby>",
             "pages": [
                 {
                     "html": "<ruby>誰<rt>だれ</rt></ruby>かに<ruby>宛<rt>あ</rt></ruby>てたメッセージが<ruby>記<rt>しる</rt></ruby>されている"
@@ -28,10 +28,25 @@
         },
         {
             "id": "ch3",
-            "title": "",
+            "title": "トレヴァーの<ruby>手記<rt>しゅき</rt></ruby>",
             "pages": [
                 {
-                    "html": ""
+                    "html": "Nov.24.1967<br/><br/>この<ruby>洋館<rt>ようかん</rt></ruby>にきて11日。<br/>どうしてこんなことになったのだ。<br/><ruby>白衣<rt>はくい</rt></ruby>の<ruby>男<rt>おとこ</rt></ruby>が<ruby>粗末<rt>そまつ</rt></ruby>な<ruby>食事<rt>しょくじ</rt></ruby>を<ruby>運<rt>はこ</rt></ruby>んで<ruby>来<rt>き</rt></ruby>て、<br/><ruby>私<rt>わたし</rt></ruby>に<ruby>言<rt>い</rt></ruby>った。<br/>「<ruby>気<rt>き</rt></ruby>の<ruby>毒<rt>どく</rt></ruby>だが、　<ruby>機密保持<rt>きまつじょうほう</rt></ruby>のためだ。」<br/>そうか…そういうことだったのか。<br/>"
+                },
+                {
+                    "html": "この<ruby>洋館<rt>ようかん</rt></ruby>の<ruby>秘密<rt>ひみつ</rt></ruby>を知っているのは、<br/>スペンサー<ruby>卿<rt>きょう</rt></ruby>と<ruby>私<rt>わたし</rt></ruby>だけで、<br/><ruby>私<rt>わたし</rt></ruby>が<ruby>死<rt>し</rt></ruby>ねば<br/><ruby>秘密<rt>ひみつ</rt></ruby>は<ruby>彼<rt>かれ</rt></ruby>ひとりのものになる。<br/>"
+                },
+                {
+                    "html": "だが…しかし、いったいなんのために…。<br/>…いや、<ruby>考<rt>かんが</rt></ruby>えてる<ruby>暇<rt>ひま</rt></ruby>はない。<br/><br/>このままでは、<ruby>危険<rt>きけん</rt></ruby>だ。<br/>それに、<ruby>家族<rt>かぞく</rt></ruby>の<ruby>無事<rt>ぶじ</rt></ruby>も<ruby>気<rt>き</rt></ruby>になる。<br/>"
+                },
+                {
+                    "html": "<ruby>私<rt>わたし</rt></ruby>は<ruby>脱出<rt>だっしゅつ</rt></ruby>を<ruby>試<rt>こころ</rt></ruby>みる<ruby>事<rt>こと</rt></ruby>にした。<br/>ジェシカ、リサ、<ruby>無事<rt>ぶじ</rt></ruby>でいてくれ。<br/>"
+                },
+                {
+                    "html": "Nov.26.1967<br/><br/>この<ruby>暗闇<rt>くらやみ</rt></ruby>でチャンスを<ruby>待<rt>ま</rt></ruby>つのに<br/>ライターを<ruby>無<rt>ぶ</rt></ruby>くしたのは<ruby>痛<rt>いた</rt></ruby>かった。<br/><ruby>妻<rt>つま</rt></ruby>が<ruby>誕生日<rt>たんじょうび</rt></ruby>に贈ってくれたもので、<br/><ruby>大切<rt>たいせつ</rt></ruby>に<ruby>使<rt>つか</rt></ruby>っていたのに。<br/>"
+                },
+                {
+                    "html": "<ruby>運命<rt>ぅんめい</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>となった<ruby>11月<rt>じゅういちがつ</rt></ruby><ruby>13日<rt>じゅうさんにち</rt></ruby>。<br/><br/>その<ruby>三日<rt>みっか</rt></ruby><ruby>前<rt>まえ</rt></ruby>に、<br/><ruby>急病<rt>きゅうびょう</rt></ruby>で<ruby>倒<rt>たお</rt></ruby>れる<ruby>叔母<rt>おば</rt></ruby>の<ruby>見舞<rt>みま</rt></ruby>いに<br/><ruby>出<rt>で</rt></ruby>かけたという<br/><ruby>妻<rt>つま</rt></ruby>ジェシカと<ruby>娘<rt>むすめ</rt></ruby>リサの<ruby>姿<rt>すがた</rt></ruby>が<br/>ふと<ruby>頭<rt>あたま</rt></ruby>に浮かぶ。"
                 },
                 {
                     "html": ""
@@ -49,7 +64,7 @@
                     "html": ""
                 },
                 {
-                    "html": "<ruby><rb></rb><rt></rt></ruby>"
+                    "html": ""
                 }
             ]
         }

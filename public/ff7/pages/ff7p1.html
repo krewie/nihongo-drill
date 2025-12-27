@@ -1,0 +1,1602 @@
+
+<html style="height:100%; background:#007A7A;">
+<head>
+<title>ミッドガルの攻防１</title>
+    <style>
+        a {
+            color: #adffff;
+            text-decoration: underline;
+            text-decoration-color: #66FFFF;
+            text-decoration-thickness: 0.5px;
+            text-underline-offset: 6px;
+        }
+
+          hr {
+            border: none;
+            border-top: 1px solid #66FFFF;
+            margin: 2em 15%;
+            opacity: 0.8;
+        }
+
+        a:hover,
+        a:active {
+            color: #adffff;
+        }
+
+        td {
+            color: #adffff;
+            padding: 0.2em 0.2em;
+        }
+
+        ruby {
+            ruby-position: over;
+        }
+
+        rt {
+            font-size: 0.5em;
+            opacity: 0.85;
+        }
+
+        .character-name {
+            color: #adffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 1.2em 0 0.2em;
+            margin-bottom: 0.1em;
+        }
+
+        .script-message {
+            color: #ffffff;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin: 0 0 1.2em;
+            padding-left: 1em;
+            border-left: 3px solid #66FFFF;
+        }
+
+        .narration {
+            color: #adffff;
+            font-size: 1.2rem;
+            font-style: italic;
+            margin: 0.8em 0 1em 1.2em;
+        }
+
+
+        .event-marker {
+            color: #66FFFF;
+            font-size: 0.95rem;
+            margin: 1.2em 0;
+            padding-left: 1.2em;
+            opacity: 0.75;
+        }
+
+        .header1 {
+            text-align: center;
+            color: #adffff;
+            font-size: 2rem;      /* font size 6 */
+            font-weight: normal; /* <em> default */
+            font-style: italic;  /* because you used <em> */
+            margin: 0.6em 0 0.2em;
+        }
+
+        .header2 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 1.5rem;   /* font size 5 */
+            margin: 0 0 1em;
+        }
+
+</style>
+</head>
+
+<body style="margin:0; min-height:100%; background:#003030;">
+
+<p align="center">　</p>
+
+<p class="header1">ミッドガルの攻防１</p>
+
+<hr>
+
+<p class="character-name">【バレット】</p>
+<p class="script-message">「行くぞ、新入り！ オレに続け！」</p>
+
+<p class="event-marker">＜戦闘：元ソルジャーＡ&amp;Ｂ＞</p>
+<p class="event-marker">＜元ソルジャーを撃破＞</p>
+<p class="event-marker">＜戦闘終了＞</p>
+
+<p>　</p>
+
+<p class="character-name">ビッグス</p>
+<p class="script-message">「さすが、ソルジャー！
+でもよ、反神羅（しんら）グループ【アパランチ】にソルジャーが参加するなんてスゲェよな！」</p>
+
+<p class="character-name">ジェシー</p>
+<p class="script-message">「その話って本当だったの？
+ソルジャーって言ったら 私たちの敵でしょ？」<br>
+「どうして、そのソルジャーが私たちアバランチに協力するわけ？」</p>
+
+<p class="character-name">ビッグス</p>
+<p class="script-message">「早とちりするな、ジェシー。元、ソルジャーなんだってさ」<br>
+「今はもう神羅（しんら）をやめちまって
+俺たちの仲間ってわけさ」<br>
+「まだ名前聞いてなかったよな。教えてくれ」</p>
+
+<p class="event-marker">＜クラウドの名前入力画面＞</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「……クラウドだ」</p>
+
+<p class="character-name">ビッグス</p>
+<p class="script-message">「クラウドか、おれは……」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「あんたたちの名前なんて興味ないね。どうせこの仕事が終わったらお別れだ」</p>
+
+<p class="character-name">【バレット】</p>
+<p class="script-message">「なにやってんだオマエたち！
+かたまって行動するなって言ってんだろ！」<br>
+「ターゲットは壱番魔晄炉（まこうろ）。魔晄炉前のブリッジに集合だぞ」</p>
+
+<p class="character-name">【バレット】</p>
+<p class="script-message">「元ソルジャー……。チッ、信用できねえな」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜バレットの名前入力画面＞</font></p>
+
+<p>　</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜１番魔胱炉＞</font></p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「……おい。おまえ魔晄炉（まこうろ）は初めてじゃないんだろ？」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「まあな。ソルジャー……
+神羅（しんら）カンパニーの人間だったからな」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「この星は魔晄（まこう）エネルギーに満ちている。住民はその魔晄エルネギーを使って日々生活している」<br>
+「でも誰も魔晄の本質を知らねえんだ。おまえ、知ってるか？」<br>
+「魔晄はこの星を流れる血だ。それを神羅（しんら）って会社はガンガン吸い出していやがる。このへんちくりんなスクラップでな……」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「能書きはいい。先を急ごう」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「クッ……」<br>
+「よし、ここからはオレといっしょに行動してもらうぜ」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ビッグス<br>
+「コード解除」<br>
+「ここの暗号を入手するために何人の仲間が犠牲になったことか……」</font></p>
+
+<p class="character-name">ジェシー</p>
+<p class="script-message">「コード解除」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜エレベータへ＞</font></p>
+
+<p class="character-name">ジェシー</p>
+<p class="script-message">「さ、そこのボタンを押して！」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「魔晄炉（まこうろ）のせいで、この星の命は毎日けずられていく。そしていつの日か……ゼロだ」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「悪いけど興味がないな」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「星が死んじまうんだぞ。えっ、クラウドさんよ！」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「俺が考えてるのは、さっさと仕事を終わらせたいってことだけだ。警備兵やガードロボットが来ないうちにな」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜エレベータを降りる＞</font></p>
+
+<p>　</p>
+
+<p class="character-name">ジェシー</p>
+<p class="script-message">「はしごの前では【決定ボタン】を押して。そうすればはしごにつかまるわ。後は【方向キー】の上下で、のぼりおりするの」</p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「ここもブッ壊しちまえば
+ただのガラクタだぜ」<br>
+「クラウドさんよ この爆弾をセットしてくれ」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「あんたがやったほうが
+いいんじゃないのか？」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「オレ？　オレは見張らせてもらう。おまえさんがおかしなマネをしないようにな」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「……好きにしてくれ」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜すると、クラウドの脳裏から謎の声が…＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">【謎の声】<br>
+『目をさませ！』<br>
+『ここはただの発電所じゃない！！』</font></p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「…………うした？」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「え？」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「どうしたクラウドさんよ？ 早くしてくれ！」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「……ああ、すまない」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜爆弾をセットすると、警報が鳴る＞</font></p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「本格的にやってくるぜ」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜戦闘：ガードスコーピオン＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">クラウド<br>
+「バレット、気をつけろ」<br>
+「しっぽをあげている間に攻撃すると
+レーザーで反撃してくるぞ」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜ガードスコーピオンを撃破＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜戦闘終了＞</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「さあ、脱出だ」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜“爆破10分前”のカウントダウンが開始される＞</font></p>
+
+<p>　</p>
+
+<p>　</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「だいじょうぶか？」</p>
+
+<p class="character-name">ジェシー</p>
+<p class="script-message">「うかつ！！　足がはさまって……」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜クラウド、ジェシーの足にはさまっている鉄をどける＞</font></p>
+
+<p class="character-name">ジェシー</p>
+<p class="script-message">「サンキュー！」</p>
+
+<p>　</p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ジェシー<br>
+「コード解除」<br>
+「さ、あせらないで」</font></p>
+
+<p class="character-name">ビッグス</p>
+<p class="script-message">「コード解除」</p>
+
+<p>　</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜壱番魔晄炉爆破＞</font></p>
+
+<p>　</p>
+
+<p class="character-name">ビッグス</p>
+<p class="script-message">「星の命……ちょっとはのびたかな」</p>
+
+<p class="character-name">ウェッジ</p>
+<p class="script-message">「そうっすね」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「…………」</p>
+
+<p class="character-name">ジェシー</p>
+<p class="script-message">「出来た！ 下がって」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜爆弾で穴を開ける＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「さあ、引き上げるぞ」<br>
+「ランデブー地点は８番街ステーション！
+各自単独行動、列車に乗りこむんだ！」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「お、おい！」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「金の話なら 無事にアジトに帰ってからだ」</p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">花売り<br>
+「ねえ」<br>
+「何があったの？」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「逃げた方がいい」or「気にするな……それより」→「気にするな……それより」を選択＞</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「……」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「花なんて、めずらしいな」or「いや、なんでもないんだ」→「花なんて、めずらしいな」を選択＞</font></p>
+
+<p class="character-name">花売り</p>
+<p class="script-message">「あっ、これね。気に入ってくれた？
+１ギルなんだけど、どう？」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「もらおう」or「やめとくよ」→「もらおう」を選択＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">花売り<br>
+「わあ、ありがとう！」<br>
+「はい！」</font></p>
+
+<p>　</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜８番街＞</font></p>
+
+<p class="character-name">兵士</p>
+<p class="script-message">「おい！　そこの男！！」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「神羅兵か……」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「やってやる！」or「めんどくさいから逃げる」→「やってやる！」を選択＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜戦闘：警備兵Ａ&amp;Ｂ＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜警備兵を撃破＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜戦闘終了＞</font></p>
+
+<p class="character-name">【兵士】</p>
+<p class="script-message">「なにごとだ！」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「チッ！」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「やってやる！」or「めんどくさいから逃げる」→「やってやる！」を選択＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜戦闘：警備兵（３人）＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜警備兵を撃破＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜戦闘終了＞</font></p>
+
+<p class="character-name">兵士</p>
+<p class="script-message">「いたぞ！！」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「チッ！」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「やってやる！」or「めんどくさいから逃げる」→「やってやる！」を選択＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜戦闘：警備兵Ａ&amp;Ｂ&amp;Ｃ＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜警備兵を撃破＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜戦闘終了＞</font></p>
+
+<p class="character-name">兵士</p>
+<p class="script-message">「こっちだ！！」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「チッ！」</p>
+
+<p class="character-name">兵士</p>
+<p class="script-message">「ここまでだな」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「残念だが、おまえらの相手をしてるほどヒマじゃないんでな」</p>
+
+<p class="character-name">兵士</p>
+<p class="script-message">「たわごとを…… よし捕らえろ！！」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜クラウド、下の列車に飛び移る＞</font></p>
+
+<p>　</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜ミッドガル発最終列車＞</font></p>
+
+<p class="character-name">ウェッジ</p>
+<p class="script-message">「クラウドさん こなかったっすね」</p>
+
+<p class="character-name">ビッグス</p>
+<p class="script-message">「クラウド…… やられちまったのかな」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「ケッ……！！」<br>
+「あの野郎が金ももらわねえで
+いなくなるわけねえだろ！！」</font></p>
+
+<p class="character-name">ジェシー</p>
+<p class="script-message">「クラウド……」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ビッグス<br>
+「なあ、クラウドってさ…」<br>
+「最後まで、おれたち…
+アバランチのために戦ってくれんのか？」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「さあな…… 知らねえよ」<br>
+「チッ！！ おまえらがもうすこし
+たよりになりゃよ……」<br>
+「あんな野郎、やとわねえでも
+いいんだがな…」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ウェッジ<br>
+「あ、バレットさん 俺たちの給料……」<br>
+「や、なんでもないっす…」</font></p>
+
+<p class="character-name">アバランチの面々</p>
+<p class="script-message">「ふっ～～……」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜そこへ、クラウドが飛び込んで来る＞</font></p>
+
+<p class="character-name">ビッグス</p>
+<p class="script-message">「クラウド！！」</p>
+
+<p class="character-name">ウェッジ</p>
+<p class="script-message">「クラウドさんっ！」</p>
+
+<p class="character-name">ジェシー</p>
+<p class="script-message">「クラウド……」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「約束の時間に 遅れたようだ」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「おい！　遅刻野郎！！」<br>
+「ずいぶん派手な おでましじゃねぇか」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「そうでもない。ふつうだ」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「ケッ！！」<br>
+「心配させやがって 勝手な野郎だ！」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「ほう……？ 心配してくれたのか」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「なにっ！！」<br>
+「チッ……遅刻のぶんは 報酬からひくからな」<br>
+「おい、おめえら！」<br>
+「場所変えるぞ。ついてこい！」</font></p>
+
+<p class="character-name">ウェッジ</p>
+<p class="script-message">「あっ、クラウドさん！！ おつかれっす！」</p>
+
+<p class="character-name">ビッグス</p>
+<p class="script-message">「へへ……クラウド！
+次の作戦もがんばろうな」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ジェシー<br>
+「あぶないから 閉めとくね」<br>
+「やだ！　クラウド！！ 顔、まっくろ……」<br>
+「はい、できあがり！」<br>
+「ね、魔胱炉で助けてくれて ありがとう！」</font></p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">【アナウンス】<br>
+「ミッドガル８番街ステーション発最終列車～」<br>
+「終点、スラム７番街列車墓場駅～」<br>
+「到着予定時刻はミッドガル時０時23分……」</font></p>
+
+<p class="character-name">【神羅課長】</p>
+<p class="script-message">「これだから終電はまいるよ…。 はあ……」</p>
+
+<p>　</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「子供じゃねえんだ。じっとしてろよ」</p>
+
+<p class="character-name">【車掌】</p>
+<p class="script-message">「たのみますよぅ！！
+他のお客さんの迷惑になりますから…」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ビッグス<br>
+「まだ列車の非常警備体制には
+移行してないみたいだな」<br>
+「明日はそうはいかないだろうけどな」</font></p>
+
+<p class="character-name">ウェッジ</p>
+<p class="script-message">「アバランチで名をあげて
+いつか俺だって……っす！」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ジェシー<br>
+「ね、クラウド。いっしょに見ない？」<br>
+「ミッドガル列車路線図ディスプレイ。二人で見ればきっと楽しいと思うの。私、説明してあげるね」<br>
+「私、こういうの好きなのよ。爆弾とかモニタ画像とかハイテク関係」<br>
+「さ、はじめるわよ」<br>
+「これが魔晄炉都市ミッドガルの全景フレームモデルね」<br>
+「スケールはだいたい１／10000ってとこかな」<br>
+「上のプレートは、地上から約50M離れているの」<br>
+「プレートを支えてるのは中心の大きな支柱と
+各区画に建てられた柱……。柱は、機械塔とも呼ばれてるわ」<br>
+「ヒソヒソ……
+（爆破した壱番魔晄炉が北のはずれにあるの）」<br>
+「そこから順番に２、３……８番魔晄炉まで８つの魔晄炉がミッドガルの電力供給を支えているのよ」<br>
+「それぞれの街には、名前もあったんだけど
+ミッドガルに住む人は誰も覚えちゃいないわ」<br>
+「名前なんかより、番号で呼ぶの。そういうところなのよ、ここは」<br>
+「ふぅ…、次はこれ！ ほら、見て」<br>
+「私たちがいま乗ってる列車のルートがこれよ」<br>
+「プレートを支えている大きな柱に
+螺旋状にレールが通っているの。いまは柱のちょうど真ん中のあたりね」<br>
+「各通過ポイントの中にはID検知エリアが設置されてるの」<br>
+「乗客すべての身分やなにから全部！
+神羅ビルのホストコンピュータと連動してチェックされちゃうわけよ」<br>
+「ひそひそ……
+（私たちはどう見たって不審人物だからニセのIDで通過してるの）」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜ID検知エリア、突入＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ジェシー<br>
+「噂をすれば、ね」<br>
+「この光がID検知エリア通過のサインなの」<br>
+「ひそひそ……
+（暗くなるからチカンが多いのよ。ID検知エリアは……）」<br>
+「ま、それはさておき、もうすぐ地上に帰れるってわけ。なんだか、ホッとするね」<br>
+「そうだ、クラウド」<br>
+「今度、私の手作り作品を
+プレゼントしちゃおうかな」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「えんりょしとくよ」or「楽しみにしてるよ」→「楽しみにしてるよ」を選択＞</font></p>
+
+<p class="character-name">ジェシー</p>
+<p class="script-message">「うん、じゃ、腕によりをかけて
+ドッカ～ンと制作するわ」</p>
+
+<p>　</p>
+
+<p class="character-name">ウェッジ</p>
+<p class="script-message">「目がチカチカしたっす。俺、暗いのだめっす。苦手っす」</p>
+
+<p>　</p>
+
+<p class="character-name">ジェシー</p>
+<p class="script-message">「もうすぐ駅に着くね。クラウドといっぱい話せて燃えたわ。私、導火線に火がついたかもよ」</p>
+
+<p>　</p>
+
+<p class="character-name">【車掌】</p>
+<p class="script-message">「たのみますよぅ！！
+他のお客さんの迷惑になりますから…」</p>
+
+<p class="character-name">ビッグス</p>
+<p class="script-message">「スースー……ムニャムニャ…。（バレット、いばってんじゃねえぞ…）」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「見ろよ…地上が見えてきたぜ。ひるも夜もねえ、オレたちの街がよ」<br>
+「ミッドガルのプレートさえなけりゃなぁ…。でっけえ空がおがめんのになあ」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「空中に浮かぶ都市か……。おちつかない風景だな」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「はあ？ あんたがそんなふうに感じるとはな」<br>
+「……意外だぜ」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「上の世界……プレート都市……」<br>
+「あのくさったピザのせいで
+下の人間がどんなに苦しんでることか……」<br>
+「下の世界は今じゃあ
+汚された空気のたまり場だ」<br>
+「おまけに魔晄炉はどんどんエネルギーをくみ上げちまう」<br>
+「おかげで土地は枯れる一方だ。空気をきれいにする力もなくしちまった」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「どうしてみんな上へ移らないんだろう……」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「さあな。金がないからだろ。いや、それとも……」<br>
+「どんなに汚されていても
+地ベタが好きなのかもな」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">クラウド<br>
+「わかってるさ…。好きでスラムに住んでるやつなどいない」<br>
+「みんな、この列車とおなじ。敷かれたレールには逆らえないんだ」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜列車、７番街スラムへ到着＞</font></p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「おう！！ みんな、集まれ！！」<br>
+「今回の作戦は成功だ。だがな、気を抜くなよ」<br>
+「本番はこれからだ！
+あんな爆発でびびるな！」<br>
+「次はもっと派手にかますぞ！」<br>
+「アジトに集合だ！！ いくぞ！」</font></p>
+
+<p>　</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜７番街スラム＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「へへ……」<br>
+「幼なじみにはやく会いてえか？」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「幼なじみ？」or「そこ、どいてくれ」→「幼なじみ？」を選択＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「へッ！！ とぼけちゃってよ」<br>
+「いいのかねえ…」<br>
+「よし！ 先に入ってろ」</font></p>
+
+<p class="character-name">【マリン】</p>
+<p class="script-message">「とうちゃん！！」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">【ティファ】<br>
+「ほら、マリン！ クラウドに
+おかえりなさいは？」<br>
+「おかえりなさい、クラウド。作戦はうまくいったみたいね」<br>
+「バレットとはケンカしなかった？」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢 ：「やっちゃった」or「ガマンした」→「ガマンした」を選択＞</font></p>
+
+<p class="character-name">【ティファ】</p>
+<p class="script-message">「ふ～ん。クラウドもおとなになったのね。子供のころ、すぐケンカだったのに」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜ティファの名前入力画面＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「あら？ お花なんてめずらしいわね」<br>
+「スラムじゃ、めったにさかないのよ」<br>
+「でも……」<br>
+「プレゼントに、お花なんて
+クラウド、そうなんだ～」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「そんなんじゃないさ」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「ティファ、あげる」or「マリン、あげる」→「ティファ、あげる」を選択＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「ありがとう、クラウド。ん～、いいかおり！」<br>
+「お店を花でいっぱいにしちゃおうかな」</font></p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ウェッジ<br>
+「あ、クラウドさん！」<br>
+「ティファちゃんの料理って
+おいしいっすねえ。パクパク……」<br>
+「でも、聞いてくれます？」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「なにを」or「お前の話なんて興味ないね」→「なにを」を選択＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">【ウェッジ】<br>
+「ティファちゃんって
+いつも俺に、料理の味見させるっすよ」<br>
+「おかげでほら、俺、こんなまるっこくなっちゃって」<br>
+「うれしいやら、悲しいやら。おいしい料理とお酒が評判で
+お店ははんじょうしてるんですけどね」</font></p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ジェシー<br>
+「う☆か☆つ☆……
+なんだか、ドキドキしてる」<br>
+「なぜなの……？」</font></p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ビッグス<br>
+「ああ～！！
+仕事の後の一杯はこたえらんねぇなぁ」<br>
+「ヒック！！」<br>
+「クラウドさんも、おひとつどうですか？」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「いらないな」or「そうだな、もらおうか」→「そうだな、もらおうか」を選択＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">【ビッグス】<br>
+「おっ！！ いい心がけじゃねぇか！！」<br>
+「元ソルジャーでもここじゃおめえも新人だ。新人にとっちゃ先輩の言うことは
+絶対だからな！」</font></p>
+
+<p>　</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「クラウド、ごめんね。マリン、てれちゃってるみたい」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">マリン<br>
+「…………」<br>
+「とうちゃん、おかえり！」</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「バレット、ごくろうさま」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「おう！！」<br>
+「おめえら！！ 会議をはじめっぞ！！」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜アバランチのメンバー、下の会議室へ向かう＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「どうぞ、すわって」<br>
+「ねえ……」<br>
+「何かのむ？」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「いまはそんな気分じゃないな」or「キツイの、くれないか？」→「キツイの、くれないか」を選択＞</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「まってて。いまつくるから」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜ティファ、すぐにつくり、クラウドにわたす＞</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「なんだか、ほっとしちゃった。クラウドが無事もどってきて」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「急にどうした？
+あのていどの仕事、なんでもないさ」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「そうね……」<br>
+「クラウド、ソルジャーになったんだもんね」<br>
+「……今回の報酬なんだけど
+バレットからもらってね」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「そうするよ。報酬をもらえば、また、お別れだな」</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「ねえ、クラウド。気分はどう？」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「……ふつうさ。どうしてそんなことを聞く？」</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「ううん、なんでもない。ただ、つかれてないのかなって…」</p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ジェシー<br>
+「うかつ……」<br>
+「見てよ、このニュース……。こんなに爆発してる」<br>
+「やっぱり、私の爆弾のせい？
+でも、このコンピュータの指示通り
+作っただけなのに」<br>
+「やだ！ どっかで計算まちがったかしら」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜テレビモニターから＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">プレジデント神羅<br>
+「……壱番魔晄炉破壊事件に関して
+アバランチと名乗る組織から
+犯行声明が出されています。<br>
+「声明によるとアバランチは
+今後も同様のテロを続けることを
+予告しております。<br>
+「しかし、ミッドガルの市民のみなさん
+安心して下さい」<br>
+「我々神羅カンパニーはこのような暴力からみなさんを守るために
+ソルジャーの投入を決定しました。これで……」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「おい、クラウドさんよ。聞きたいことがあるんだ」<br>
+「きょう、オレたちが戦った相手に
+ソルジャーはいたのか？」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「いや、いなかった。それは確実だ」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「ずいぶんと自信たっぷりじゃねえか」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「もしソルジャーと戦っていたら
+あんたたちが生きてるはずないからな」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「自分が元ソルジャーだからって
+えらそうに言うんじゃねえよ！」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「…………」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「確かにおまえは強い」<br>
+「おそらくソルジャーってのは
+みんな強いんだろうさ」<br>
+「でもな、おまえは
+反乱組織アバランチにやとわれてる身だ。神羅のかたを持つんじゃねえ！」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">クラウド<br>
+「神羅のかたをもつ？
+俺はあんたの質問に答えただけだ」<br>
+「俺は上で待っている。報酬の話がしたい」</font></p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「チッ！！ ………………ほ、報酬かよ…」</p>
+
+<p class="character-name">マリン</p>
+<p class="script-message">「とうちゃ～ん かっこいい！」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜ティファ、駆けつける＞</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「待って、クラウド！」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「ティファ！ そんなヤツ放っておけ！」<br>
+「どうやら神羅に
+未練タラタラらしいからな！」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">クラウド<br>
+「だまれ！」<br>
+「俺は神羅にもソルジャーにも 未練はない！」<br>
+「でも、かんちがいするな！」<br>
+「星の命も
+おまえたちアバランチの活動にも興味はない！」</font></p>
+
+<p>　</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「クラウド、おねがい。力をかして」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「ティファ……わるいけどさ」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「星が病んでるの。このままじゃ死んじゃう」<br>
+「誰かがなんとかしなくちゃならないの」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「バレットたちがなんとかするんだろ？
+俺には関係ないさ」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「あ～あ！ 本当に行っちゃうんだ！」<br>
+「かわいい幼なじみのたのみも
+きかずに行っちゃうんだ！」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「ん……？」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「よくいうぜ！」or「……わるいな」→「……わるいな」を選択＞</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「……約束も忘れちゃったんだ」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「約束？」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「やっぱり忘れてる」<br>
+「思い出して……クラウド。あれは７年前よ……」<br>
+「ほら、村の給水塔」<br>
+「覚えてる？」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">クラウド<br>
+「ああ……あの時か」<br>
+「ティファ、なかなか来なくて
+ちょっと寒かったな」</font></p>
+
+<p>　</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜回想＞</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「お・ま・た・せ」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜ティファ、クラウドの横に座る＞</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「な～に？ 話があるって」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「俺……春になったら村を出て
+ミッドガルに行くよ」</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「……男の子たちって
+み～んな村を出てっちゃうのね」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">クラウド<br>
+「俺はみんなとはちがう。ただ仕事をさがすだけじゃない」<br>
+「俺、ソルジャーになりたいんだ」<br>
+「セフィロスみたいな 最高のソルジャーに」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「セフィロス…… 英雄セフィロス、か」<br>
+「ソルジャーになるのって 難しいんでしょ？」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">クラウド<br>
+「……しばらくのあいだ
+村にはもどれないな、きっと」<br>
+「……うん？」</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「大活躍したら 新聞にものるかな？」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「がんばるよ」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「ね、約束しない？」<br>
+「あのね、クラウドが有名になって
+その時、私が困ってたら……」<br>
+「クラウド、私を助けに来てね」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「はぁ？」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「私がピンチのときに
+ヒーローがあらわれて助けてくれるの」<br>
+「一度くらいは経験したいじゃない？」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「はぁ？」</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「いいじゃないのよ～！ 約束しなさい～！」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「わかった……約束するよ」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜回想終了＞</font></p>
+
+<p>　</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「俺は英雄でも有名でもない。約束は……守れない」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「でも子供のころの夢を実現したでしょ？
+ちゃんとソルジャーになったんだもの」<br>
+「だから、ねっ！ 今度こそ約束を……」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜そこへバレットが来る＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「おいちょっと待て！ ソルジャーさんよ」<br>
+「約束は約束だからな！ ほら、金だ！！」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜バレットのへそくり1500ギルを受け取る＞</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「こんな、しけた報酬 じょうだんじゃないな」</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「え？それじゃ！！」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「次のミッションはあるのか？ 倍額の3000でうけてやってもいい」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「なんだと！……！」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「いいからいいから」<br>
+「ヒソヒソ……
+（人手に困ってるってのが本音でしょ？）」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「う……ぐぅ……
+（残りのへそくりはマリンの学費だぞ……）」<br>
+「2000だ！」</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「ありがとう、クラウド」</p>
+
+<p>　</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜翌朝＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「おはよ！　クラウド！」<br>
+「よく、眠れた？」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「バレットのイビキがうるさくて…」or「ティファがそばにいたから…」→「ティファがそばにいたから…」を選択＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「それはどういう意味かしら？」<br>
+「今回は私も行くね！」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「標的は【五番魔晄炉】だ。まず、駅に行く」<br>
+「くわしい作戦は列車の中でな」<br>
+「おう、クラウド！」<br>
+「作戦の前にひとつ
+おまえさんに聞きたいことがある！」<br>
+「じつはな……
+オレはマテリアの使い方をよくしらねえ！」<br>
+「ひろったマテリアはおまえにくれてやる。だから、教えろ！」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「さて……」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「面倒だが説明しよう」or「面倒くさい……」→「面倒だが説明しよう」を選択＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜ここでメニュー画面が開かれ、チュートリアル形式でマテリアの使い方などが説明される＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「ケッ！　なにが……
+『それほど、むずかしくはないだろう』だ！」<br>
+「ぜんぜんわかんねえ……」<br>
+「まあ、いいだろう。マテリアはおまえが管理しとけ！」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「クラウド！
+武器屋２階のおじさんから伝言よ」<br>
+「あげたいものがあるからお店によって
+……だって。わすれないでね！」</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「マリン、お店たのむね！」</p>
+
+<p class="character-name">マリン</p>
+<p class="script-message">「うん！！ お仕事がんばってね」</p>
+
+<p>　</p>
+
+<p>　</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜クラウド一行、列車に乗り込む＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「おう！」<br>
+「こいつぁ、貸し切り列車じゃねえぞ！！
+散れ散れ！！」</font></p>
+
+<p class="character-name">【神羅課長】</p>
+<p class="script-message">「また危ない人たちといっしょか。私もつくづく運がないな」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「んっ～！？」<br>
+「んんっ～！？」<br>
+「おいっ！！ ずいぶんすいてやがるな」<br>
+「どうなってる？」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">【神羅課長】<br>
+「ヒッ！！」<br>
+「き、きみたちみたいなのがいるから
+す、すいてるんじゃないか…」<br>
+「ヒ～～ッ！！」<br>
+「ニュ、ニュースぐらい見てるだろ？
+アバランチの爆弾テロ予告が あったんだ」<br>
+「こんな日にミッドガルに出かけるのは
+サラリーマン神羅ぐらいさ」</font></p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「きっさま、神羅のもんか？」</p>
+
+<p class="character-name">神羅課長</p>
+<p class="script-message">「わ、私は暴力にはくっしないぞ～。こ、この席だって、ゆずらない」</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「バレット！！」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「チッ！！ あんた、ついてるぜ」</p>
+
+<p>　</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「さて、どうするんだ？」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「ケッ！ 落ちついた野郎だぜ！
+こっちのペースがくるっちまう…」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜列車が突如音をたてて揺れる＞</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「列車の接続がすんだみたい。出発するわ」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「今回の作戦について 聞かせてくれ」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「へッ！　仕事熱心だな。クラウドさんよ！」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「しかたねえ…… せ、説明してやるっ！」<br>
+「ジェシーから聞いただろうが
+上のプレートとの境界には検問がある。列車ごとIDスキャンするシステムだ」</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「神羅じまんのね」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「今までのニセのIDは もう使えねえ…」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">【アナウンス】<br>
+「本日も御乗車ありがとうございます～」<br>
+「４番街ステーション到着予定時刻は」<br>
+「ミッドガル時11時45分～」</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「ID検知エリアまで あと３分ってところね」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「よし、あと３分たったら
+列車から飛び降りる」<br>
+「いいな！」</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「クラウド、こっち！
+路線図モニタでも見てよ」</p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「へッ！　元ソルジャーの物知りさんよ！
+五番魔晄炉のあたりは、くわしいんだろ！」<br>
+「おまえさんの知ったかぶり説明が
+聞きてえもんだな！」</font></p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">神羅課長<br>
+「ヒッ……！！」<br>
+「わ、私にはかまわないでくれたまえ。（ヒッヒッ……
+会社のみんなにじまんしちゃおう…）」</font></p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「あら、もう何度も見たって顔してるのね」<br>
+「ま、いいわ。もっとそばにきて」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜そこへ、いきなりID検知エリア突入の警報がなる＞</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「おかしいわね。ID検知エリアはもっと先なのに」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">【警報アナウンス】<br>
+「Ａ式非常警戒体制を発動」<br>
+「列車内に未確認のIDを検知」<br>
+「各車両緊急チェックに入ります」<br>
+「くりかえします」<br>
+「Ａ式非常警戒体制を発動」<br>
+「列車内に未確認のIDを検知」<br>
+「各車両緊急チェックに入ります」</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「どういうこと？」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「どうなってんだ！！」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜そこへ、慌ててジェシーが来る＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ジェシー<br>
+「まっずいことになっちゃったわ」<br>
+「説明はあと。はやく！　こっちの車両に！」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「チッ！ しくじりやがったな…」<br>
+「いくぜ！ モタモタすんな！」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">【警報アナウンス】<br>
+「車両１に未確認ID検知」<br>
+「警戒レベル１」<br>
+「車両１をロックします」<br>
+「車両１ロック完了」<br>
+「警戒レベル２に移行」</font></p>
+
+<p class="character-name">ビッグス</p>
+<p class="script-message">「いそぐんだ！」</p>
+
+<p class="character-name">ウェッジ</p>
+<p class="script-message">「扉ロックされるっす！」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ジェシー<br>
+「とにかく、走って！」<br>
+「作戦２にチェンジよ！」</font></p>
+
+<p class="character-name">【サラリーマン（？）】</p>
+<p class="script-message">「やぁ…… あんたたち、そうぞうしいねえ」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">【警報アナウンス】<br>
+「車両２に未確認ID検知」<br>
+「ドアロック準備」</font></p>
+
+<p class="character-name">【サラリーマン（？）】</p>
+<p class="script-message">「まあまあ、おちついて」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">【警報アナウンス】<br>
+「警戒レベル２」<br>
+「車両２をロックします」<br>
+「車両２ロック完了」<br>
+「警戒レベル３に移行」</font></p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「よし！！ ぬけたか！？」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ジェシー<br>
+「まだよ、すぐ次の検知がはじまるわ。バレたらアウトよ！」<br>
+「でも、心配しないで。前の車両に順々にうつっていけば
+やりすごせるわ！」</font></p>
+
+<p class="character-name">【警報アナウンス】</p>
+<p class="script-message">「未確認IDは列車前半部に移動中」</p>
+
+<p class="character-name">【ギザギザ頭の男】</p>
+<p class="script-message">「ニヒニヒ！！」</p>
+
+<p class="character-name">【警報アナウンス】</p>
+<p class="script-message">「現在位置の再確認に入ります」</p>
+
+<p class="character-name">【ギザギザ頭の男】</p>
+<p class="script-message">「シュタッ！！」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">【警報アナウンス】<br>
+「警戒レベル３」<br>
+「車両３ロック完了」<br>
+「警戒レベル４に移行」<br>
+「車両４に未確認IDを検知」<br>
+「警戒レベル４」<br>
+「車両４をロックします」<br>
+「車両４ロック完了」<br>
+「警戒レベルMAXに移行」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「よしっ！！ うまくいったな！」<br>
+「おう！！ こっちだ！！」<br>
+「いくぜ！！ こっからダイブだ！！」</font></p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ジェシー<br>
+「私、ジェシーよ。どう、クラウド？」<br>
+「神羅の制服、似合ってるかな」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「そうだな……」or「いまはそれどころじゃない」→「そうだな……」を選択＞</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「……すてきだよ、男勝りで」</p>
+
+<p class="character-name">ジェシー</p>
+<p class="script-message">「エッ！！ うれしいっ ……のかしら？」</p>
+
+<p>　</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「……こわいね」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「いまさらなんだよ。だいたい、どうして来たんだ？」</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「だって……」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「おふたりさん 時間がないぞ！」<br>
+「おう！！ 時間がねえ！！」<br>
+「……なんとかしてやれ！」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「うん！！ 決めた！」<br>
+「よっく、見てて。私、飛ぶから！！」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜ティファ、飛び降りる＞</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「さきにいくが かまわないな？」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「リーダーは最後まで 残るもんだ」<br>
+「いいから、はやくいけ！」<br>
+「おう！ けがすんなよ！」<br>
+「作戦はこっからが 本番だぞ！」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜クラウド、飛び降りる＞</font></p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「じゃな！ あとしまつはたのんだっ！</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜バレット、飛び降りる＞</font></p>
+
+<p>　</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜螺旋トンネル＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「よし、ここまでは予定通りだ」<br>
+「しかし、五番魔晄炉にたどり着くまでは
+油断は禁物だぜ」<br>
+「ビッグス、ウェッジ、ジェシーが先行している手はずになってる。行くぞ、おまえら」<br>
+「さぁて、五番魔晄炉は
+このトンネルの奥だ！」</font></p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">クラウド<br>
+「この光の帯は、神羅の警報センサー。これ以上、奥には進めないな」<br>
+「ここまで来て警報センサーの世話になるなんてのは、シロウトだけだ」</font></p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「か～っ、せまっちい穴だな。ここからプレートの下にもぐれってのか？
+たまんねぇぜ」<br>
+「どうする、クラウドさんよぉ？」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「中をよく見てみる」or「おりる」or「おりない」→「中をよく見てみる」を選択＞</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「……ダクトの中に
+足がかりになりそうなものはないわね」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「ああ。このダクトをおりたら
+ここには、もどってこれないぞ」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「のんびりしてるヒマはないぜ。いつ神羅のやつらにおれたちの行動がばれないとも限らないからな」<br>
+「クラウド、行くしかないぜ」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：「おりる」or「おりない」→「おりる」を選択＞</font></p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「でもよ、ゾッとしねぇな」</p>
+
+<p>　</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜四番街プレート内部＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ジェシー<br>
+「ごめんなさい」<br>
+「列車のIDスキャンのミス 私のせいなの」<br>
+「クラウドのIDカード。私の特別製にしたから……
+あんなことに」<br>
+「心をこめたつもりだったんだけどね。失敗しちゃった」<br>
+「こんどはもっとましなもの
+プレゼントするわ」<br>
+「先にアジトに帰って研究開発に
+はげんでるからね」</font></p>
+
+<p>　</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜四番街プレート下部＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ビッグス<br>
+「おれたちは、これで引き上げる。アジトで落ち合おうぜ」<br>
+「クラウド、五番街魔晄炉の爆破
+よろしくたのむぜ！」</font></p>
+
+<p>　</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜五番魔晄炉＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜クラウド、頭を押さえ、うずくまる＞</font></p>
+
+<p>　</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜回想＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜父親の亡骸を見てうずくまる15歳くらいのティファ＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「パパ……」<br>
+「セフィロスね！」<br>
+「セフィロスがやったのね！」<br>
+「セフィロス……ソルジャー……
+魔晄炉……神羅……ぜんぶ！」<br>
+「ぜんぶ大キライ！」</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜ティファ、剣を持ち、奥へと進む＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜回想終了＞</font></p>
+
+<p>　</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「おい、しっかりしてくれよ！」</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「だいじょうぶ？」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「……ティファ」</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「ん？」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「い……いや……
+気にするな。さあ、先を急ごう！」</p>
+
+<p>　</p>
+
+<p>　</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「３人同時にボタンを押せって
+ジェシーが言ってたわ」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜同時押し失敗＞</font></p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「失敗ね、もう一度」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜成功。→扉が開く＞</font></p>
+
+<p>　</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「こっちだ！」<br>
+「神羅兵！？」<br>
+「くそっ！ どうなってんだ？」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「……ワナ、か」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜そこで、プレジデント神羅、登場＞</font></p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「プ、プレジデント神羅？」</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「なぜ、プレジデントが ここにいるの？」</p>
+
+<p class="character-name">プレジデント神羅</p>
+<p class="script-message">「ほほう。君たちがアレかね。……なんて言ったかな？」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「アバランチだ！　覚えておけ！
+おまえはプレジデント神羅だな」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「ひさしぶりだな、プレジデント」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">プレジデント神羅<br>
+「……ひさしぶり？ ああ、君がアレかね」<br>
+「アバランチとやらに参加しているという元ソルジャー。たしかにその目の輝きは
+魔晄を浴びた者……」<br>
+「その裏切り者の名前は なんといったかな？」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「クラウド、だ」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">プレジデント神羅<br>
+「すまないがソルジャーの名前なんて
+いちいち覚えとらんのでな」<br>
+「せめてセフィロスぐらいには
+なってもらわんと」<br>
+「そう、セフィロス……。優秀なソルジャーであった。そう、優秀すぎる……な」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「セフィロスだと……？」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「んなこたぁ、どうでもいい！
+もうすぐここはドッカン！！だぜ！
+ざまあみあがれ！」</p>
+
+<p class="character-name">プレジデント神羅</p>
+<p class="script-message">「そうだな。キミたちウジ虫を始末するには
+高価すぎる花火ではあるが……」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">バレット<br>
+「ウジ虫だと！？
+言うに事欠いて、ウジ虫だと！」<br>
+「キサマら神羅は、この星を死に追いやろうとする寄生虫じゃねェか！
+その親玉であるキサマが 何をえらそうにホザく！」</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">プレジデント神羅<br>
+「……そろそろキミたちの相手をするのにもあきたよ」<br>
+「わしは多忙な男なのでな。もう、失礼させてもらうか。今日は、会食の予定があるものでな」</font></p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「会食だと！？　ふざけやがって！
+おまえには言いたいことが
+まだまだあるんだ！」</p>
+
+<p class="character-name">プレジデント神羅</p>
+<p class="script-message">「キミたちの遊び相手は
+別に用意させてもらった」</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「！？　何の音？」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「な、なんだコイツは！！」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜エアバスター、現る＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">プレジデント神羅<br>
+「我が社の兵器開発部が試行した機動兵『エアバスター』だ」<br>
+「君たちとの戦闘データは
+今後の開発の貴重なサンプルとして利用させてもらうよ」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「……機動兵？」</p>
+
+<p class="character-name">プレジデント神羅</p>
+<p class="script-message">「では、失礼」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜プレジデント神羅、やってきたヘリコプターに乗り込んで、さっそうと去る＞</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「待て、プレジデント！」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「おい、クラウド！
+とりあえずコイツをなんとかするぞ！」</p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">ティファ<br>
+「助けて、クラウド！」<br>
+「これ、ソルジャーなの？」</font></p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「まさか！　ただの機械さ」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「なんでもいい！ ぶっこわしてやるぜ！」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜戦闘：エアバスター＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜エアバスターを撃破＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜戦闘終了＞</font></p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜エアバスターの爆発とともに路面が破壊され、クラウドが落ちそうになる＞</font></p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「もうすぐ爆発する！ 行くぞ、ティファ！」</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「バレット！ 何とかならないの？」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「どうしようもねえな」</p>
+
+<p class="character-name">ティファ</p>
+<p class="script-message">「クラウド！
+なんとかして生きて！　死んじゃダメ！
+話したいことたくさんあるの！」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「わかってる、ティファ」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「おい、なんとかなりそうか？」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜選択肢：（つよがる）or（ダメかもしれない……）→（つよがる）を選択＞</font></p>
+
+<p><font color="#FFFF00" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ffff00, #ffff1a);">クラウド<br>
+「…………」<br>
+「自分の心配でもしてろ！
+俺はいいからティファを！」</font></p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「……そうか。いろいろ悪かったな」</p>
+
+<p class="character-name">クラウド</p>
+<p class="script-message">「これで終わりみたいな言いかたは
+やめてくれ！」</p>
+
+<p class="character-name">バレット</p>
+<p class="script-message">「じゃ、あとでな」</p>
+
+<p><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">＜そしてクラウド、落っこちる＞</font></p>
+
+<p>　</p>
+
+<p>　</p>
+
+<p>　</p>
+
+<p><a href="https://web.archive.org/web/20220526212928/http://ajatt.com/finalfantasy/ff7p2.htm"><font color="#FF00FF" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff00ff, #ff1aff);"><strong>TO BE
+CONTINUED</strong></font></a><font color="#FF00FF" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff00ff, #ff1aff);"><strong>....</strong></font></p>
+
+<hr>
+
+<p><a href="https://web.archive.org/web/20220526212928/http://ajatt.com/finalfantasy/ff7p-index.htm"><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">FF7完全セリフチャート・インデックスへ</font></a></p>
+
+<p><a href="https://web.archive.org/web/20220526212928/http://ajatt.com/finalfantasy/index.html"><font color="#FF0000" data-darkreader-inline-color="" style="--darkreader-inline-color: var(--darkreader-text-ff0000, #ff1a1a);">TOP</font></a></p>
+
+
+
+</body></html>

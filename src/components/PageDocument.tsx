@@ -34,15 +34,14 @@ export default function DocumentReader({ data }: BookReaderProps) {
           </div>
 
           {chapter.title && (
-            <h2
-              style={{
-                fontSize: "2.4rem",
+            <div
+                dangerouslySetInnerHTML={{ __html: chapter.title }}
+                style={{
+            fontSize: "2.4rem",
                 fontWeight: 600,
                 marginBottom: "3rem",
-              }}
-            >
-              {chapter.title}
-            </h2>
+                }}
+              />
           )}
 
           {chapter.pages.map((page, pageIndex) => (

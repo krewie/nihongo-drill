@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation, Navigate } from "react-router-dom";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 import "@szhsin/react-menu/dist/index.css";
@@ -80,6 +80,9 @@ function App() {
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => navigate("/bio1r")}>
           ビオハザード1のファルメモ 🚧
+        </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => (window.location.href = "/ff7/pages/index.html")}>
+          final whatever 🚧
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
