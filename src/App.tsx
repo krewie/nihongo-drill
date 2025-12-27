@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route, useNavigate, useLocation, Navigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 import "@szhsin/react-menu/dist/index.css";
