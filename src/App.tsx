@@ -82,7 +82,7 @@ function App() {
           ビオハザード1のファルメモ 🚧
         </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => (window.location.href = "/ff7/pages/index.html")}>
-          final whatever 🚧
+          ファイナル・ファンタジーVII・ゲームスクリプト ✅
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
