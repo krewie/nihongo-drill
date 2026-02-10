@@ -29,6 +29,7 @@ import {
 import { PSX } from "./pages/docs/PSX";
 import { SH1 } from "./pages/books/SH1";
 import { BIO1remake } from "./pages/books/BIO1remake";
+import InstinctMode from "./components/InstinctMode";
 
 function App() {
   const navigate = useNavigate();
@@ -93,6 +94,9 @@ function App() {
         <Button variant="outline">📚 Select a Quiz ▼</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
+        <DropdownMenuItem onClick={() => navigate("/instinctmode")}>
+          📌 Instinct mode
+        </DropdownMenuItem>
         <DropdownMenuItem onClick={() => navigate("/demoquiz")}>
           📌 Demonstratives Quiz
         </DropdownMenuItem>
@@ -152,6 +156,7 @@ function App() {
     <Route path="/sh1" element={<SH1 />} />
     <Route path="/bio1r" element={<BIO1remake />} />
     <Route path="/demoquiz" element={<DemoQuiz />} />
+    <Route path="/instinctmode" element={<InstinctMode />} />
     <Route path="/pronounsquiz" element={<PronounsQuiz />} />
     <Route path="/weekdaysquiz" element={<WeekDaysQuiz />} />
     <Route path="/kanjireadingquiz" element={<KanjiReadingQuiz />} />

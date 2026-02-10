@@ -1,0 +1,74 @@
+sentence,answer,reason,contrast
+音が聞こえる,happened,The sound reaches you without effort.,音を聞く
+ドアを開ける,did,You actively perform the action.,ドアが開く
+ドアが開く,happened,The door changes state on its own.,ドアを開ける
+カギを探す,did,You intentionally search for something.,カギが見つかる
+カギが見つかる,happened,The key is found as a result.,カギを見つける
+敵が出る,happened,An enemy appears on its own.,敵を出す
+ライトをつける,did,You actively turn something on.,ライトがつく
+ライトがつく,happened,The light turns on as a state change.,ライトをつける
+音を聞く,did,You intentionally listen.,音が聞こえる
+何かが動く,happened,Something moves without your control.,何かを動かす
+レバーを動かす,did,You actively move an object.,レバーが動く
+水を入れる,did,You put something into something else.,水が入る
+水が入る,happened,Water goes in as a result.,水を入れる
+ドアが閉まる,happened,The door closes by itself or as a state.,ドアを閉める
+ドアを閉める,did,You intentionally close something.,ドアが閉まる
+火が消える,happened,The fire goes out on its own.,火を消す
+火を消す,did,You actively put out the fire.,火が消える
+箱が壊れる,happened,The box breaks as an event.,箱を壊す
+箱を壊す,did,You actively break something.,箱が壊れる
+カギを落とす,did,You intentionally or accidentally drop it.,カギが落ちる
+カギが落ちる,happened,The key falls as an event.,カギを落とす
+イベントが始まる,happened,An event begins as a state.,イベントを始める
+イベントを始める,did,You initiate the event.,イベントが始まる
+音が止まる,happened,The sound stops as a result.,音を止める
+音を止める,did,You actively stop the sound.,音が止まる
+何も見えない,happened,Nothing is visible to you.,何も見ない
+ドアが見える,happened,The door is visible without effort.,ドアを見る
+ドアを見る,did,You actively look at something.,ドアが見える
+足音が聞こえる,happened,The sound reaches you without effort.,足音を聞く
+声が聞こえる,happened,A voice reaches your ears naturally.,声を聞く
+音を聞く,did,You intentionally listen.,音が聞こえる
+匂いがする,happened,A smell is perceived without action.,匂いを嗅ぐ
+匂いを嗅ぐ,did,You actively smell something.,匂いがする
+光が見える,happened,Light is visible to you.,光を見る
+何かを見る,did,You actively look at something.,何かが見える
+影が見える,happened,The shadow is visible on its own.,影を見る
+ドアが開かない,happened,The door is in a closed state.,ドアを開ける
+ドアを開けようとする,did,You attempt an action.,ドアが開く
+鍵がかかっている,happened,The lock is in a fixed state.,鍵をかける
+鍵をかける,did,You actively lock something.,鍵がかかる
+鍵が外れる,happened,The lock disengages as an event.,鍵を外す
+鍵を外す,did,You intentionally remove the lock.,鍵が外れる
+何かが落ちる,happened,Something falls as an event.,何かを落とす
+何かを落とす,did,You cause something to fall.,何かが落ちる
+床が濡れている,happened,The floor is already in a wet state.,床を濡らす
+床を濡らす,did,You cause the floor to become wet.,床が濡れる
+音が大きくなる,happened,The volume increases as a change.,音を大きくする
+音を大きくする,did,You actively increase the volume.,音が大きくなる
+音が小さくなる,happened,The volume decreases naturally.,音を小さくする
+音を小さくする,did,You intentionally lower the volume.,音が小さくなる
+ランプが消える,happened,The lamp goes out on its own.,ランプを消す
+ランプを消す,did,You actively turn off the lamp.,ランプが消える
+ランプが点く,happened,The lamp turns on as a state change.,ランプを点ける
+ランプを点ける,did,You actively turn on the lamp.,ランプが点く
+水が漏れる,happened,Water leaks as an uncontrolled event.,水を漏らす
+水を止める,did,You actively stop the water.,水が止まる
+水が止まる,happened,The water stops flowing.,水を止める
+壁が崩れる,happened,The wall collapses as an event.,壁を壊す
+壁を壊す,did,You actively destroy the wall.,壁が崩れる
+道が塞がっている,happened,The path is blocked as a state.,道を塞ぐ
+道を塞ぐ,did,You intentionally block the path.,道が塞がる
+敵が近づく,happened,An enemy approaches on its own.,敵を近づける
+敵を倒す,did,You actively defeat an enemy.,敵が倒れる
+敵が倒れる,happened,The enemy falls as a result.,敵を倒す
+機械が止まる,happened,The machine stops operating.,機械を止める
+機械を動かす,did,You actively operate the machine.,機械が動く
+機械が動く,happened,The machine operates as a state.,機械を動かす
+扉が閉じている,happened,The door is already closed.,扉を閉じる
+扉を閉じる,did,You actively close the door.,扉が閉じる
+何かが始まる,happened,Something begins as an event.,何かを始める
+何かを始める,did,You initiate an action.,何かが始まる
+作業が終わる,happened,The task ends as a state.,作業を終える
+作業を終える,did,You actively finish the task.,作業が終わる
