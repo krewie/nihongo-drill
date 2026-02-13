@@ -1,6 +1,6 @@
 // InstinctMode.tsx
 import { useEffect, useState } from "react"
-import { ITEMS, InstinctItem, loadInstinctData } from "../data/instinctData"
+import { InstinctItem, loadInstinctData } from "../data/instinctData"
 
 const ROUND_SIZE = 5
 
