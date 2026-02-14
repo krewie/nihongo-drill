@@ -25,9 +25,11 @@ useEffect(() => {
 }, [])
 
 
-  useEffect(() => {
-    startNewRound()
-  }, [])
+useEffect(() => {
+  if (items.length === 0) return
+  startNewRound()
+}, [items])
+
 
   function startNewRound() {
     const shuffled = [...items].sort(() => Math.random() - 0.5)

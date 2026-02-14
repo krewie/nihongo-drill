@@ -16,7 +16,6 @@ export async function loadInstinctData(): Promise<InstinctItem[]> {
   const [_header, ...rows] = text.trim().split("\n")
 
   return rows.map(row => {
-    console.log(row);
     const [sentence, answer, reason, contrast] = row.split(",")
 
     return {
