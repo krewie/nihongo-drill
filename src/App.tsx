@@ -85,6 +85,9 @@ function App() {
                 <DropdownMenuItem onClick={() => (window.location.href = "/ff7/pages/index.html")}>
           ファイナル・ファンタジーVII・ゲームスクリプト ✅
         </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => (window.location.href = "/biohazard/pages/index.html")}>
+          ビオハザードのプェーギ 🚧
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
 
