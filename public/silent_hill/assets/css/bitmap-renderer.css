@@ -7,6 +7,40 @@ body {
     overflow: hidden;
 }
 
+.memo-controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+
+  padding: 0.75rem;
+
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+}
+
+.memo-controls button {
+  padding: 0.4rem 0.9rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 0px;
+
+  background: rgba(30, 30, 30, 0.9);
+  color: white;
+
+  cursor: pointer;
+}
+
+.memo-controls button:hover {
+  background: rgba(0, 64, 33, 0.9);
+}
+
 .memo-stage {
     position: fixed;
     inset: 0;
@@ -16,6 +50,7 @@ body {
     align-items: center;
 
     background: #000;
+    padding-top: 3.5rem;
 }
 
 .memo-paper {
@@ -84,7 +119,7 @@ body {
     display: inline-block;
     height: calc(64px * var(--scale));
 
-    background-image: url("../../assets/js/font000.png");
+    background-image: url("../../assets/js/material/font000.png");
     background-repeat: no-repeat;
     background-size: calc(4400px * var(--scale)) calc(9600px * var(--scale));
 

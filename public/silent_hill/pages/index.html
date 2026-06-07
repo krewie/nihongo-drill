@@ -1,169 +1,313 @@
 <!doctype html>
-<html style="height:100%; background:#000000;">
+<html lang="ja">
 <head>
-    <style>
-        a {
-            color: #ff0000;
-            text-decoration: underline;
-            text-decoration-color: #800000;
-            text-decoration-thickness: 0.1px;
-            text-underline-offset: 10px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 1.2em 0 0.2em;
-            margin-bottom: 0.1em;
-        }
+  <meta charset="UTF-8" />
+  <title>Silent Hill Memo Archive</title>
 
-        .banner-wrap {
-            position: relative;
-            width: fit-content;
-            margin: 0 auto;
-        }
+  <style>
+    :root {
+      --bg: #000;
+      --text: rgba(230, 230, 220, 0.92);
+      --muted: rgba(150, 150, 140, 0.78);
 
-        .banner {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
+      --accent: rgba(190, 190, 180, 0.86);
+      --accent-soft: rgba(190, 190, 180, 0.18);
 
-        .banner-title {
-            position: absolute;
+      --red: rgba(135, 42, 38, 0.78);
+      --red-soft: rgba(135, 42, 38, 0.28);
 
-            /* steer position here */
-            top: 65%;
-            left: 50%;
-            transform: translateX(-100%);
+      --panel: rgba(8, 8, 8, 0.88);
+      --line: rgba(190, 190, 180, 0.22);
+    }
 
-            color: #ff0000;
-            font-size: 3rem;
-            font-weight: bold;
-            letter-spacing: 0.08em;
-            margin: 0;
+    html {
+        min-height: 100%;
+        background: #000;
+    }
+    body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at top, rgba(180, 180, 165, 0.08), transparent 36%),
+        linear-gradient(#020202, #080808 45%, #000);
+      color: var(--text);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        "Hiragino Mincho ProN",
+        "Yu Mincho",
+        "Noto Serif JP",
+        serif;
+    }
 
-            text-shadow:
-                0 0 6px rgba(255, 255, 255, 0.6),
-                0 0 10px rgba(255, 0, 0, 0.4);
-        }
+    body {
+      padding: 2rem;
+      box-sizing: border-box;
+    }
 
-        .banner-subtitle {
-            position: absolute;
+    .page {
+      width: min(980px, 100%);
+      margin: 0 auto;
+    }
 
-            /* steer position here */
-            top: 88%;
-            left: 50%;
-            transform: translateX(-100%);
+    .banner-wrap {
+      position: relative;
+      overflow: hidden;
 
-            color: #ff0000;
-            font-size: 3rem;
-            font-weight: bold;
-            letter-spacing: 0.08em;
-            margin: 0;
+      width: 100%;
+      margin: 0 auto;
 
-            text-shadow:
-                0 0 6px rgba(255, 255, 255, 0.6),
-                0 0 10px rgba(255, 0, 0, 0.4);
-        }
+      border: 1px solid var(--line);
+      box-shadow:
+        0 0 45px rgba(0, 0, 0, 0.95),
+        inset 0 0 45px rgba(0, 0, 0, 0.75);
+    }
 
-        .banner-title .small {
-            font-weight: 300;
-        }
+    .banner-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
 
-        a:hover,
-        a:active {
-            color: #FFFFFF;
-        }
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.12),
+          rgba(0, 0, 0, 0.42) 45%,
+          rgba(0, 0, 0, 0.85)
+        ),
+        repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.025) 0,
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px,
+          transparent 4px
+        );
 
-        .table-text {
-            color: #ff0000;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 1.2em 0 0.2em;
-            margin-bottom: 0.1em;
-        }
+      pointer-events: none;
+    }
 
-        td {
-            color: #ffffff;
-            padding: 1em 2em;
-        }
+    .banner {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
 
-        ruby {
-            ruby-position: over;
-        }
+    .banner-title,
+    .banner-subtitle {
+      position: absolute;
+      z-index: 2;
 
-        .header1 {
-            text-align: center;
-            color: #ff0000;
-            font-size: 2rem;      /* font size 6 */
-            font-weight: bold; /* <em> default */
-            font-style: bold;  /* because you used <em> */
-            margin: 0.6em 0 0.2em;
-            text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
-        }
+      left: 50%;
+      transform: translateX(-50%);
 
-        .header1 .small {
-            font-weight: 300;
-        }
+      margin: 0;
+      text-align: center;
+      white-space: nowrap;
 
-        .header2 {
-            text-align: center;
-            color: #ffffff;
-            font-size: 1.5rem;   /* font size 5 */
-            margin: 0 0 1em;
-        }
+      text-shadow:
+        0 0 8px rgba(0, 0, 0, 1),
+        0 0 14px rgba(190, 190, 180, 0.28);
+    }
 
-        hr {
-            border: none;
-            border-top: 1px solid #ff0000;
-            margin: 2em 15%;
-            opacity: 0.8;
-        }
+    .banner-title {
+      top: 62%;
 
-rt {
-  font-size: 0.5em;
-  opacity: 0.85;
-}
+      font-family: Arial, Helvetica, sans-serif;
 
+      color: var(--accent);
+      font-size: clamp(2.2rem, 6vw, 4.8rem);
+      font-weight: bold;
+      letter-spacing: 0.1em;
+    }
 
-</style>
+    .banner-title .small {
+      font-weight: 300;
+      opacity: 0.9;
+    }
 
+    .banner-subtitle {
+      top: 84%;
+
+      color: rgba(225, 225, 215, 0.9);
+      font-size: clamp(1rem, 2.6vw, 1.7rem);
+      font-weight: normal;
+      letter-spacing: 0.12em;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 2rem 10%;
+      opacity: 0.8;
+    }
+
+    .archive-panel {
+      padding: 2rem;
+
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(rgba(10, 10, 10, 0.94), rgba(0, 0, 0, 0.96)),
+        repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.025) 0,
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px,
+          transparent 5px
+        );
+
+      box-shadow:
+        0 0 35px rgba(0, 0, 0, 0.9),
+        inset 0 0 35px rgba(255, 255, 255, 0.025);
+    }
+
+    .table-text {
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      margin: 0 0 1.2rem;
+      text-align: center;
+    }
+
+    .game-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .game-card {
+      display: grid;
+      gap: 0.45rem;
+
+      min-height: 120px;
+      padding: 1.1rem;
+
+      color: var(--text);
+      text-decoration: none;
+
+      border: 1px solid rgba(190, 190, 180, 0.16);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(190, 190, 180, 0.08),
+          rgba(255, 255, 255, 0.025) 45%,
+          rgba(0, 0, 0, 0.2)
+        );
+
+      transition:
+        transform 140ms ease,
+        border-color 140ms ease,
+        background 140ms ease,
+        color 140ms ease;
+    }
+
+    .game-card:hover {
+      transform: translateY(-3px);
+      color: #fff;
+      border-color: rgba(190, 190, 180, 0.42);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(190, 190, 180, 0.15),
+          rgba(255, 255, 255, 0.04) 45%,
+          var(--red-soft)
+        );
+    }
+
+    .game-title-ja {
+      color: rgba(235, 235, 225, 0.95);
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+    }
+
+    .game-title-en {
+      color: var(--muted);
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+
+    .game-meta {
+      margin-top: auto;
+      color: var(--red);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    a:hover,
+    a:active {
+      color: #fff;
+    }
+
+    ruby {
+      ruby-position: over;
+    }
+
+    rt {
+      font-size: 0.5em;
+      opacity: 0.85;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 1rem;
+      }
+
+      .game-list {
+        grid-template-columns: 1fr;
+      }
+
+      .archive-panel {
+        padding: 1.25rem;
+      }
+
+      .banner-subtitle {
+        top: 82%;
+      }
+    }
+  </style>
 </head>
-<body style="margin:0; min-height:100%; background:#000000;">
 
-<div class="banner-wrap">
-    <img src="../assets/banner.jpg" class="banner" />
+<body>
+  <main class="page">
 
-    <h1 class="banner-title">
+    <div class="banner-wrap">
+      <img src="../assets/banner.jpg" class="banner" alt="Silent Hill banner" />
+
+      <h1 class="banner-title">
         <span class="small">S</span><span class="small">I</span>LENT HI<span class="small">L</span><span class="small">L</span>
-    </h1>
-    <p class="banner-subtitle header2">サイレント・ヒル　全てのメモ</p>
-</div>
-<hr/>
+      </h1>
 
-<div align="center">
-<table border="0">
-    <tbody>
-        <tr>
-            <p class="table-text">オリギナル・シェリー</p>
-        </tr>
-        <tr>
-            <td align="center" colspan="2">
-                <p class="table-text">サイレント・ヒル 1</p>
-                <a href="MEMO">メモ</a>
-            </td>
-            <td align="center" colspan="2">
-                <p class="table-text">サイレント・ヒル 2</p>
-                <a href="../pages/sh2/memo.html">メモ</a>
+      <p class="banner-subtitle">サイレント・ヒル　メモアーカイブ</p>
+    </div>
 
-            </td>
-            <td align="center" colspan="2">
-                <p class="table-text">サイレント・ヒル 3</p>
-                <a href="MEMO">メモ</a>
+    <hr />
 
-            </td>
-        </tr>
-    </tbody>
-</table>
-</div>
+    <section class="archive-panel">
+      <p class="table-text">オリジナル・シリーズ</p>
 
+      <div class="game-list">
+        <a class="game-card" href="MEMO">
+          <span class="game-title-ja">サイレント・ヒル 1</span>
+          <span class="game-title-en">Silent Hill 1</span>
+          <span class="game-meta">メモ / Memo</span>
+        </a>
+        
+        <a class="game-card" href="../pages/sh2/index.html">
+          <span class="game-title-ja">サイレント・ヒル 2</span>
+          <span class="game-title-en">Silent Hill 2</span>
+          <span class="game-meta">メモ / Memo</span>
+        </a>
+
+        <a class="game-card" href="MEMO">
+          <span class="game-title-ja">サイレント・ヒル 3</span>
+          <span class="game-title-en">Silent Hill 3</span>
+          <span class="game-meta">メモ / Memo</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
 </body>
 </html>

@@ -1,5 +1,5 @@
-const FONT_IMAGE = "../../assets/js/font000.png";
-const TABLE_FILE = "../../assets/js/sh2_table.txt";
+const FONT_IMAGE = "../../../assets/js/material/font000.png";
+const TABLE_FILE = "../../../assets/js/material/sh2_table.txt";
 
 const COLS = 100;
 const CELL_W = 44;
