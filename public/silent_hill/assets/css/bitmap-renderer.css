@@ -1,0 +1,142 @@
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    background: #000;
+    color: white;
+    overflow: hidden;
+}
+
+.memo-stage {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #000;
+}
+
+.memo-paper {
+    position: relative;
+
+    width: 65vw;
+    max-width: 900px;
+
+    /*Adjust to match image size*/
+    aspect-ratio: 1922 / 1107;
+
+    background-image: var(--memo-bg-image);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.memo-paper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+}
+
+.bitmap-text {
+    --scale: 1;
+
+    position: fixed;
+    z-index: 1;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    box-sizing: border-box;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 8vh 0;
+
+    background: transparent;
+    border: none;
+
+    line-height: 1;
+    user-select: text;
+    text-align: left;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+
+/* Chrome/Safari/Edge */
+.bitmap-text::-webkit-scrollbar {
+    display: none;
+}
+
+.sh2-glyph {
+    display: inline-block;
+    height: calc(64px * var(--scale));
+
+    background-image: url("../../assets/js/font000.png");
+    background-repeat: no-repeat;
+    background-size: calc(4400px * var(--scale)) calc(9600px * var(--scale));
+
+    color: transparent;
+    user-select: text;
+
+    font-size: calc(64px * var(--scale));
+    line-height: calc(64px * var(--scale));
+    vertical-align: top;
+
+    opacity: 0.72;
+
+    filter:
+    brightness(0)
+    saturate(100%)
+    invert(78%)
+    sepia(20%)
+    saturate(900%)
+    hue-rotate(205deg)
+    brightness(105%)
+    drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.75))
+    drop-shadow(0 0 3px rgba(190, 170, 255, 0.45));
+}
+
+.sh2-space {
+    display: inline-block;
+    width: calc(22px * var(--scale));
+    height: calc(64px * var(--scale));
+}
+
+.sh2-line {
+    display: block;
+    white-space: nowrap;
+    height: calc(64px * var(--scale));
+}
+
+.sh2-content {
+    width: fit-content;
+
+    /*
+      This is the magic:
+      - if content is short, auto margins center it vertically
+      - if content is too tall, margins collapse and scrolling starts
+    */
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.memo-page {
+    display: none;
+}
+
+.memo-page.active {
+    display: block;
+}
