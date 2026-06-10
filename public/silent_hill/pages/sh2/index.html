@@ -1,406 +1,449 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Silent Hill 2 Memos</title>
-
-  <style>
-    html {
-        min-height: 100%;
-        background: #000;
-    }
-    body {
-    margin: 0;
-    min-height: 100%;
-    background:
-        radial-gradient(circle at center, rgba(180, 171, 226, 0.08), transparent 42%),
-        linear-gradient(#020202, #080808 45%, #000);
-    color: #ddd;
-    font-family: Georgia, "Times New Roman", serif;
-    }
-
-    body {
-    display: grid;
-    place-items: center;
-    padding: 2rem;
-    box-sizing: border-box;
-    }
-
-/* Main archive panel */
-.memo-index {
-  width: min(820px, 100%);
-  overflow: hidden;
-
-  border: 1px solid rgba(180, 171, 226, 0.22);
-  background:
-    linear-gradient(rgba(4, 4, 8, 0.96), rgba(0, 0, 0, 0.98)),
-    repeating-linear-gradient(
-      0deg,
-      rgba(180, 171, 226, 0.035) 0,
-      rgba(180, 171, 226, 0.035) 1px,
-      transparent 1px,
-      transparent 5px
-    );
-
-  box-shadow:
-    0 0 55px rgba(0, 0, 0, 0.95),
-    0 0 30px rgba(180, 171, 226, 0.08),
-    inset 0 0 45px rgba(180, 171, 226, 0.045);
-}
-
-/* Top header with image */
-.memo-header {
-  position: relative;
-
-  min-height: 220px;
-  padding: 2rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-
-  background-image:
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.25),
-      rgba(0, 0, 0, 0.72) 55%,
-      rgba(0, 0, 0, 0.96)
-    ),
-    var(--memo-header-image);
-
-  background-size: cover;
-  background-position: center;
-  border-bottom: 1px solid rgba(180, 171, 226, 0.2);
-}
-
-.memo-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background:
-    radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.65) 100%),
-    repeating-linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.035) 0,
-      rgba(255, 255, 255, 0.035) 1px,
-      transparent 1px,
-      transparent 4px
-    );
-
-  pointer-events: none;
-}
-
-.memo-header::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 1px;
-
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(180, 171, 226, 0.844),
-    transparent
-  );
-}
-
-.memo-header h1,
-.memo-header .subtitle {
-  position: relative;
-  z-index: 1;
-}
-
-.memo-header h1 {
-  margin: 0 0 0.35rem;
-
-  color: rgba(235, 232, 255, 0.94);
-  font-size: 2.25rem;
-  font-weight: normal;
-  letter-spacing: 0.1em;
-
-  text-shadow:
-    0 0 10px rgba(180, 171, 226, 0.45),
-    0 0 28px rgba(0, 0, 0, 1);
-}
-
-.memo-header .subtitle {
-  margin: 0;
-
-  color: rgba(180, 171, 226, 0.844);
-  font-size: 0.95rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-
-  text-shadow:
-    0 0 8px rgba(180, 171, 226, 0.35),
-    0 0 18px rgba(0, 0, 0, 1);
-}
-
-/* Content area below header */
-.memo-content {
-  padding: 2rem;
-}
-
-.memo-sections {
-  display: grid;
-  gap: 2.4rem;
-}
-
-.memo-section {
-  display: grid;
-  gap: 0.85rem;
-}
-
-.memo-section h2 {
-  margin: 0;
-  padding-bottom: 0.5rem;
-
-  color: rgba(228, 224, 255, 0.92);
-  font-size: 1.1rem;
-  font-weight: normal;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-
-  border-bottom: 1px solid rgba(180, 171, 226, 0.22);
-
-  text-shadow:
-    0 0 8px rgba(180, 171, 226, 0.25),
-    0 0 18px rgba(0, 0, 0, 1);
-}
-
-.section-note {
-  margin: 0;
-
-  color: rgba(185, 185, 195, 0.72);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.memo-list {
-  display: grid;
-  gap: 0.85rem;
-}
-
-/* Individual memo card */
-.memo-card {
-  position: relative;
-
-  display: grid;
-  gap: 0.28rem;
-
-  padding: 1rem 3.2rem 1rem 1.2rem;
-
-  color: rgba(225, 225, 235, 0.88);
-  text-decoration: none;
-
-  border: 1px solid rgba(180, 171, 226, 0.14);
-  background:
-    linear-gradient(
-      90deg,
-      rgba(180, 171, 226, 0.09),
-      rgba(255, 255, 255, 0.025) 38%,
-      rgba(0, 0, 0, 0.12)
-    );
-
-  box-shadow:
-    inset 0 0 20px rgba(180, 171, 226, 0.025),
-    0 0 18px rgba(0, 0, 0, 0.4);
-
-  transition:
-    transform 140ms ease,
-    background 140ms ease,
-    border-color 140ms ease,
-    box-shadow 140ms ease,
-    color 140ms ease;
-}
-
-.memo-card::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-
-  width: 3px;
-  background: rgba(180, 171, 226, 0.844);
-
-  opacity: 0.55;
-}
-
-.memo-card::after {
-  content: "›";
-
-  position: absolute;
-  right: 1.2rem;
-  top: 50%;
-  transform: translateY(-50%);
-
-  color: rgba(180, 171, 226, 0.62);
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.memo-card:hover {
-  transform: translateX(5px);
-
-  color: #fff;
-  border-color: rgba(180, 171, 226, 0.45);
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(180, 171, 226, 0.18),
-      rgba(255, 255, 255, 0.055) 42%,
-      rgba(160, 72, 92, 0.12)
-    );
-
-  box-shadow:
-    0 0 22px rgba(180, 171, 226, 0.12),
-    inset 0 0 24px rgba(180, 171, 226, 0.055);
-}
-
-.memo-card:hover::after {
-  color: rgba(235, 232, 255, 0.95);
-}
-
-.memo-card:hover::before {
-  opacity: 1;
-}
-
-/* Text inside cards */
-.memo-title-ja {
-  color: rgba(235, 232, 255, 0.95);
-  font-size: 1.15rem;
-
-  font-family:
-    "Hiragino Mincho ProN",
-    "Yu Mincho",
-    "Noto Serif JP",
-    serif;
-
-  text-shadow: 0 0 8px rgba(180, 171, 226, 0.22);
-}
-
-.memo-title-en {
-  color: rgba(190, 187, 210, 0.82);
-  font-size: 0.95rem;
-  letter-spacing: 0.04em;
-}
-
-.memo-meta {
-  margin-top: 0.4rem;
-
-  color: rgba(160, 72, 92, 0.85);
-  font-size: 0.8rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-/* Disabled / coming soon */
-.memo-card.is-disabled {
-  pointer-events: none;
-  opacity: 0.42;
-}
-
-.memo-card.is-disabled::after {
-  content: "";
-}
-
-.memo-card.is-disabled::before {
-  background: rgba(160, 72, 92, 0.75);
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  body {
-    padding: 1rem;
-  }
-
-  .memo-header {
-    min-height: 180px;
-    padding: 1.25rem;
-  }
-
-  .memo-header h1 {
-    font-size: 1.55rem;
-  }
-
-  .memo-header .subtitle {
-    font-size: 0.78rem;
-  }
-
-  .memo-content {
-    padding: 1.25rem;
-  }
-
-  .memo-card {
-    padding: 0.9rem 2.6rem 0.9rem 1rem;
-  }
-
-  .memo-title-ja {
-    font-size: 1.05rem;
-  }
-}
-  </style>
+	<meta charset="UTF-8" />
+	<title>Silent Hill 2 Memos</title>
+
+	<style>
+		html {
+			min-height: 100%;
+			background: #000;
+		}
+
+		body {
+			margin: 0;
+			min-height: 100%;
+			background:
+				radial-gradient(circle at center, rgba(180, 171, 226, 0.08), transparent 42%),
+				linear-gradient(#020202, #080808 45%, #000);
+			color: #ddd;
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		body {
+			display: grid;
+			place-items: center;
+			padding: 2rem;
+			box-sizing: border-box;
+		}
+
+		/* Main archive panel */
+		.memo-index {
+			width: min(820px, 100%);
+			overflow: hidden;
+
+			border: 1px solid rgba(180, 171, 226, 0.22);
+			background:
+				linear-gradient(rgba(4, 4, 8, 0.96), rgba(0, 0, 0, 0.98)),
+				repeating-linear-gradient(0deg,
+					rgba(180, 171, 226, 0.035) 0,
+					rgba(180, 171, 226, 0.035) 1px,
+					transparent 1px,
+					transparent 5px);
+
+			box-shadow:
+				0 0 55px rgba(0, 0, 0, 0.95),
+				0 0 30px rgba(180, 171, 226, 0.08),
+				inset 0 0 45px rgba(180, 171, 226, 0.045);
+		}
+
+		/* Top header with image */
+		.memo-header {
+			position: relative;
+
+			min-height: 220px;
+			padding: 2rem;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: end;
+
+			background-image:
+				linear-gradient(to bottom,
+					rgba(0, 0, 0, 0.25),
+					rgba(0, 0, 0, 0.72) 55%,
+					rgba(0, 0, 0, 0.96)),
+				var(--memo-header-image);
+
+			background-size: cover;
+			background-position: center;
+			border-bottom: 1px solid rgba(180, 171, 226, 0.2);
+		}
+
+		.memo-header::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+
+			background:
+				radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.65) 100%),
+				repeating-linear-gradient(0deg,
+					rgba(255, 255, 255, 0.035) 0,
+					rgba(255, 255, 255, 0.035) 1px,
+					transparent 1px,
+					transparent 4px);
+
+			pointer-events: none;
+		}
+
+		.memo-header::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: -1px;
+			height: 1px;
+
+			background: linear-gradient(to right,
+					transparent,
+					rgba(180, 171, 226, 0.844),
+					transparent);
+		}
+
+		.memo-header h1,
+		.memo-header .subtitle {
+			position: relative;
+			z-index: 1;
+		}
+
+		.memo-header h1 {
+			margin: 0 0 0.35rem;
+
+			color: rgba(235, 232, 255, 0.94);
+			font-size: 2.25rem;
+			font-weight: normal;
+			letter-spacing: 0.1em;
+
+			text-shadow:
+				0 0 10px rgba(180, 171, 226, 0.45),
+				0 0 28px rgba(0, 0, 0, 1);
+		}
+
+		.memo-header .subtitle {
+			margin: 0;
+
+			color: rgba(180, 171, 226, 0.844);
+			font-size: 0.95rem;
+			letter-spacing: 0.14em;
+			text-transform: uppercase;
+
+			text-shadow:
+				0 0 8px rgba(180, 171, 226, 0.35),
+				0 0 18px rgba(0, 0, 0, 1);
+		}
+
+		/* Content area below header */
+		.memo-content {
+			padding: 2rem;
+		}
+
+		.memo-sections {
+			display: grid;
+			gap: 2.4rem;
+		}
+
+		.memo-section {
+			display: grid;
+			gap: 0.85rem;
+		}
+
+		.memo-section h2 {
+			margin: 0;
+			padding-bottom: 0.5rem;
+
+			color: rgba(228, 224, 255, 0.92);
+			font-size: 1.1rem;
+			font-weight: normal;
+			letter-spacing: 0.14em;
+			text-transform: uppercase;
+
+			border-bottom: 1px solid rgba(180, 171, 226, 0.22);
+
+			text-shadow:
+				0 0 8px rgba(180, 171, 226, 0.25),
+				0 0 18px rgba(0, 0, 0, 1);
+		}
+
+		.section-note {
+			margin: 0;
+
+			color: rgba(185, 185, 195, 0.72);
+			font-size: 0.9rem;
+			line-height: 1.5;
+		}
+
+		.memo-list {
+			display: grid;
+			gap: 0.85rem;
+		}
+
+		/* Individual memo card */
+		.memo-card {
+			position: relative;
+
+			display: grid;
+			gap: 0.28rem;
+
+			padding: 1rem 3.2rem 1rem 1.2rem;
+
+			color: rgba(225, 225, 235, 0.88);
+			text-decoration: none;
+
+			border: 1px solid rgba(180, 171, 226, 0.14);
+			background:
+				linear-gradient(90deg,
+					rgba(180, 171, 226, 0.09),
+					rgba(255, 255, 255, 0.025) 38%,
+					rgba(0, 0, 0, 0.12));
+
+			box-shadow:
+				inset 0 0 20px rgba(180, 171, 226, 0.025),
+				0 0 18px rgba(0, 0, 0, 0.4);
+
+			transition:
+				transform 140ms ease,
+				background 140ms ease,
+				border-color 140ms ease,
+				box-shadow 140ms ease,
+				color 140ms ease;
+		}
+
+		.memo-card::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+
+			width: 3px;
+			background: rgba(180, 171, 226, 0.844);
+
+			opacity: 0.55;
+		}
+
+		.memo-card::after {
+			content: "›";
+
+			position: absolute;
+			right: 1.2rem;
+			top: 50%;
+			transform: translateY(-50%);
+
+			color: rgba(180, 171, 226, 0.62);
+			font-size: 1.5rem;
+			line-height: 1;
+		}
+
+		.memo-card:hover {
+			transform: translateX(5px);
+
+			color: #fff;
+			border-color: rgba(180, 171, 226, 0.45);
+
+			background:
+				linear-gradient(90deg,
+					rgba(180, 171, 226, 0.18),
+					rgba(255, 255, 255, 0.055) 42%,
+					rgba(160, 72, 92, 0.12));
+
+			box-shadow:
+				0 0 22px rgba(180, 171, 226, 0.12),
+				inset 0 0 24px rgba(180, 171, 226, 0.055);
+		}
+
+		.memo-card:hover::after {
+			color: rgba(235, 232, 255, 0.95);
+		}
+
+		.memo-card:hover::before {
+			opacity: 1;
+		}
+
+		/* Text inside cards */
+		.memo-title-ja {
+			color: rgba(235, 232, 255, 0.95);
+			font-size: 1.15rem;
+
+			font-family:
+				"Hiragino Mincho ProN",
+				"Yu Mincho",
+				"Noto Serif JP",
+				serif;
+
+			text-shadow: 0 0 8px rgba(180, 171, 226, 0.22);
+		}
+
+		.memo-title-en {
+			color: rgba(190, 187, 210, 0.82);
+			font-size: 0.95rem;
+			letter-spacing: 0.04em;
+		}
+
+		.memo-meta {
+			margin-top: 0.4rem;
+
+			color: rgba(160, 72, 92, 0.85);
+			font-size: 0.8rem;
+			letter-spacing: 0.09em;
+			text-transform: uppercase;
+		}
+
+		/* Disabled / coming soon */
+		.memo-card.is-disabled {
+			pointer-events: none;
+			opacity: 0.42;
+		}
+
+		.memo-card.is-disabled::after {
+			content: "";
+		}
+
+		.memo-card.is-disabled::before {
+			background: rgba(160, 72, 92, 0.75);
+		}
+
+		/* Mobile */
+		@media (max-width: 600px) {
+			body {
+				padding: 1rem;
+			}
+
+			.memo-header {
+				min-height: 180px;
+				padding: 1.25rem;
+			}
+
+			.memo-header h1 {
+				font-size: 1.55rem;
+			}
+
+			.memo-header .subtitle {
+				font-size: 0.78rem;
+			}
+
+			.memo-content {
+				padding: 1.25rem;
+			}
+
+			.memo-card {
+				padding: 0.9rem 2.6rem 0.9rem 1rem;
+			}
+
+			.memo-title-ja {
+				font-size: 1.05rem;
+			}
+		}
+	</style>
 </head>
 
 <body>
-    <main
-  class="memo-index"
-  style="--memo-header-image: url('/silent_hill/assets/img/sh2-header.jpg');">
+	<main class="memo-index" style="--memo-header-image: url('/silent_hill/assets/img/sh2-header.jpg');">
 
-  <header class="memo-header">
-    <h1>Silent Hill 2</h1>
-    <p class="subtitle">サイレント・ヒル 2 Memo Archive</p>
-  </header>
+		<header class="memo-header">
+			<h1>Silent Hill 2</h1>
+			<p class="subtitle">サイレント・ヒル 2 Memo Archive</p>
+		</header>
 
-  <div class="memo-content">
-    <nav class="memo-sections" aria-label="Silent Hill 2 memos">
+		<div class="memo-content">
+			<nav class="memo-sections" aria-label="Silent Hill 2 memos">
 
-      <section class="memo-section">
-        <h2>Letters</h2>
-        <p class="section-note">
-          Personal letters and character-related documents.
-        </p>
+				<!-- Memos -->
 
-        <div class="memo-list">
-          <a class="memo-card" href="/silent_hill/pages/sh2/memo/maryletter.html">
-            <span class="memo-title-ja">メアリーの手紙</span>
-            <span class="memo-title-en">Letter from Mary</span>
-            <span class="memo-meta">Mary / Opening letter</span>
-          </a>
-        </div>
+				<section class="memo-section">
+					<h2>メモ / Memos</h2>
+					<p class="section-note">
+						全てのメモ。All the notes.
+					</p>
 
-      </section>
+					<div class="memo-list">
+						<a class="memo-card" href="/silent_hill/pages/sh2/memo/deadmanletters.html">
+							<span class="memo-title-ja">死体のそばのメモ / したい の そば の メモ</span>
+							<span class="memo-title-en">Memo next to corpse</span>
+							<span class="memo-meta">The memos next to the dead corpse north end of Neely Street.</span>
+						</a>
+						<a class="memo-card" href="/silent_hill/pages/sh2/memo/shopnewspaper.html">
+							<span class="memo-title-ja">店のショーウィンドウの新聞 / みせ の ショーウィンドウ の しんぶん</span>
+							<span class="memo-title-en">Newspaper from shop window</span>
+							<span class="memo-meta">"There was a hole here"-room</span>
+						</a>
+						<a class="memo-card is-disabled" href="link">
+							<span class="memo-title-ja">日本語</span>
+							<span class="memo-title-en">英語</span>
+							<span class="memo-meta">description</span>
+						</a>
+					</div>
+				</section>
 
-      <section class="memo-section">
-        <h2>Town Notes</h2>
-        <p class="section-note">
-          Notes, signs, and messages found around Silent Hill.
-        </p>
+				<!-- Extra memos -->
 
-        <div class="memo-list">
-          <a class="memo-card is-disabled" href="/silent_hill/pages/sh2/memo/maryletter.html">
-            <span class="memo-title-ja">沼の記念碑</span>
-            <span class="memo-title-en">Swamp Monument</span>
-            <span class="memo-meta">First town appearance</span>
-          </a>
-        </div>
+				<section class="memo-section">
+					<h2>エクストラ・メモ / Extra Memos</h2>
+					<p class="section-note">
+						Notes you can only get through extra playthroughs.
+					</p>
 
-        <div class="memo-list">
-          <a class="memo-card is-disabled" href="#">
-            <span class="memo-title-ja">調査中</span>
-            <span class="memo-title-en">Coming soon</span>
-            <span class="memo-meta">Silent Hill streets</span>
-          </a>
-        </div>
-      </section>
+					<div class="memo-list">
+						<a class="memo-card is-disabled" href="link">
+							<span class="memo-title-ja">日本語</span>
+							<span class="memo-title-en">The road to tomorrow.</span>
+							<span class="memo-meta">description</span>
+						</a>
+						<a class="memo-card is-disabled" href="link">
+							<span class="memo-title-ja">日本語</span>
+							<span class="memo-title-en">How to be a Happy Couple.</span>
+							<span class="memo-meta">description</span>
+						</a>
+						<a class="memo-card is-disabled" href="link">
+							<span class="memo-title-ja">日本語</span>
+							<span class="memo-title-en">Choosing death.</span>
+							<span class="memo-meta">description</span>
+						</a>
+					</div>
+				</section>
 
-    </nav>
-  </div>
-</main>
+				<section class="memo-section">
+					<h2>アイテム・メモ / Item memos</h2>
+					<p class="section-note">
+						Personal letters and character-related documents.
+					</p>
+
+					<div class="memo-list">
+						<a class="memo-card" href="/silent_hill/pages/sh2/memo/maryletter.html">
+							<span class="memo-title-ja">メアリーの手紙</span>
+							<span class="memo-title-en">Letter from Mary</span>
+							<span class="memo-meta">Mary / Opening letter</span>
+						</a>
+					</div>
+
+				</section>
+
+				<section class="memo-section">
+					<h2>Town Notes</h2>
+					<p class="section-note">
+						Notes, signs, and messages found around Silent Hill.
+					</p>
+
+					<div class="memo-list">
+						<a class="memo-card is-disabled" href="/silent_hill/pages/sh2/memo/maryletter.html">
+							<span class="memo-title-ja">沼の記念碑</span>
+							<span class="memo-title-en">Swamp Monument</span>
+							<span class="memo-meta">First town appearance</span>
+						</a>
+					</div>
+
+					<div class="memo-list">
+						<a class="memo-card is-disabled" href="#">
+							<span class="memo-title-ja">調査中</span>
+							<span class="memo-title-en">Coming soon</span>
+							<span class="memo-meta">Silent Hill streets</span>
+						</a>
+					</div>
+				</section>
+
+			</nav>
+		</div>
+	</main>
 </body>
+
 </html>

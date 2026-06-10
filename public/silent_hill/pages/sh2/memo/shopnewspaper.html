@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SH2 Bitmap Text Renderer</title>
+
+  <link rel="stylesheet" href="../../../assets/css/bitmap-renderer.css" />
+</head>
+
+<body>
+  
+<div class="memo-controls">
+  <button type="button" data-lang="ja">日本語</button>
+  <button type="button" data-lang="en">English</button>
+  <button type="button" data-action="toggle-language-mode">All Languages</button>
+
+  <button type="button" data-action="prev">Prev</button>
+  <button type="button" data-action="toggle-page-mode">Show One</button>
+  <button type="button" data-action="next">Next</button>
+</div>
+
+  <div class="memo-stage">
+    <div
+      class="memo-paper"
+      style="--memo-bg-image: url('../../assets/img/shopnews.png');">
+
+<div id="bitmapText" class="bitmap-text"></div>
+
+<!-- Page 1 -->
+<template class="memo-page active" lang="ja">
+ここに穴があった
+今はもうない
+</template>
+
+<template class="memo-page active" lang="en">
+There was a HOLE here.
+It's gone now.
+</template>
+
+    </div>
+</div>
+
+<script src="../../../assets/js/renderer.js"></script>
+<script src="../../../assets/js/memo-controls.js"></script>
+</body>
+</html>

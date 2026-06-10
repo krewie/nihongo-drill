@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SH2 Bitmap Text Renderer</title>
+
+  <link rel="stylesheet" href="../../../assets/css/bitmap-renderer.css" />
+</head>
+
+<body>
+  
+<div class="memo-controls">
+  <button type="button" data-lang="ja">日本語</button>
+  <button type="button" data-lang="en">English</button>
+  <button type="button" data-action="toggle-language-mode">All Languages</button>
+
+  <button type="button" data-action="prev">Prev</button>
+  <button type="button" data-action="toggle-page-mode">Show One</button>
+  <button type="button" data-action="next">Next</button>
+</div>
+
+  <div class="memo-stage">
+    <div
+      class="memo-paper"
+      style="--memo-bg-image: url('../../assets/img/memoded.png');">
+
+<div id="bitmapText" class="bitmap-text"></div>
+
+<!-- Page 1 -->
+<template class="memo-page active" lang="ja">
+私が知ったこと、思ったことをこ
+こに書いておく。それが少しでもあ
+なたの助けになればと思う。
+</template>
+
+<template class="memo-page active" lang="en">
+If you're reading this,
+it probably means I'm
+already dead.
+</template>
+
+<!-- Page 2 -->
+<template class="memo-page active" lang="ja">
+あなたがこれを読んでいるという
+ことは、たぶん私はもうないのだろ
+うけれど。
+</template>
+
+<template class="memo-page active" lang="en">
+I'm going to write everything that
+I've learned so far. Maybe that will
+help you out somehow.
+</template>
+
+<!-- Page 3 -->
+<template class="memo-page active" lang="ja">
+私はあの悪魔たちを見た。確かに
+そこにいた。しかし友人は何も見て
+いないと言う。
+それが真実ならば、私が見たもの
+は幻だったのか？
+</template>
+
+<template class="memo-page active" lang="en">
+I saw those demons. They were 
+there, I'm certain. But my friend
+says he didn't see anything.
+If that's true, does that mean
+that what I saw was an illusion?
+</template>
+
+<!-- Page 4 -->
+<template class="memo-page active" lang="ja">
+ただ言えるのは、あの人を食ら
+う悪魔たちが実在していても、私の
+頭がおかしくなり幻覚を生み出して
+しまったのでも…どちらにしろ私
+は救われない。
+</template>
+
+<template class="memo-page active" lang="en">
+But whether that demon that
+ate human beings was real, or
+whether it was just some kind
+of hallucination that my mind
+dreamed up... one thing I know
+for sure is that I'm beyond all
+hope.
+</template>
+
+<!-- Page 5 -->
+<template class="memo-page active" lang="ja">
+彼らは灯りに寄ってくる習性を持っ
+ているようだ。いや光の中に見える
+人という餌になのだろう
+そして音に対しても反応を示す。
+</template>
+
+<template class="memo-page active" lang="en">
+It seems that they're attracted
+to light. That's why people who
+need light to see are their natural
+prey.
+They also react strongly to sound.
+</template>
+
+<!-- Page 6 -->
+<template class="memo-page active" lang="ja">
+もしただ生き延びたいのならば暗
+闇の中で、じっとしているのが正し
+いのかもしれない。
+それで助かる保証はないけれど。
+</template>
+
+<template class="memo-page active" lang="en">
+If you want to go on living,
+you'd be better off just sitting
+in the dark and staying quiet.
+But even that probably won't
+save you.
+</template>
+
+<!-- Page 7 -->
+<template class="memo-page active" lang="ja">
+もし戦うことがあるならば、第一
+に落ち着くことだ。恐怖に駆られて、
+銃を乱射するのはむしろ危険である。
+</template>
+
+<template class="memo-page active" lang="en">
+If you're going to try to fight them,
+the most important thing is to relax.
+It's dangerous to fire a gun while
+you're all crazy with fear.
+</template>
+
+<!-- Page 8 -->
+<template class="memo-page active" lang="ja">
+よく狙い、そして引きつけること。
+そしてとどめを忘れてはいけない。
+あの化け物たちも、たいてい倒せ
+ないことはない。人ほど、もろくな
+いにしても。
+</template>
+
+<template class="memo-page active" lang="en">
+Take good aim, and then squeeze the trigger.
+And don't forget to finish them off.
+I think most of those creatures can be killed,
+even if they are tougher than people.
+</template>
+
+<!-- Page 9 -->
+<template class="memo-page active" lang="ja">
+逃げる
+</template>
+
+<template class="memo-page active" lang="en">
+Run
+</template>
+
+<!-- Page 10 -->
+<template class="memo-page active" lang="ja">
+逃げる! 逃げる! 逃げる! 
+逃げる! 逃げる! 逃げる! 
+逃げる! 逃げる! 逃げる! 
+</template>
+
+<template class="memo-page active" lang="en">
+Run! Run! Run! 
+Run! Run! Run! 
+Run! Run! Run! 
+</template>
+
+    </div>
+</div>
+
+<script src="../../../assets/js/renderer.js"></script>
+<script src="../../../assets/js/memo-controls.js"></script>
+</body>
+</html>
