@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation, Link } from "react-router-dom";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 import "@szhsin/react-menu/dist/index.css";
@@ -177,11 +177,69 @@ function App() {
 
 function Home() {
   return (
-  <div>
-    <p className="mt-4">皆さん、ようこそ.</p>
-    <p className="mt-4">このサイトでは楽しいものを集めています。</p>
-    <p className="mt-4">だから、このサイトの全てのコンテンツは私が作りました。</p>
-  </div>
+    <div>
+      <p className="mt-4">皆さん、ようこそ。</p>
+      <p className="mt-4">このサイトでは楽しいものを集めています。</p>
+      <p className="mt-4">だから、このサイトの全てのコンテンツは私が作りました。</p>
+
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <a
+          href="/biohazard/pages/index.html"
+          className="group overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition hover:scale-[1.02] hover:border-red-500"
+        >
+          <img
+            src="/assets/img/biohazard-card.png"
+            alt="Biohazard"
+            className="h-40 w-full object-cover opacity-85 transition group-hover:opacity-100"
+          />
+
+          <div className="p-4">
+            <h2 className="text-lg font-semibold">ビオハザード</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              メモとゲーム内テキストを読む
+            </p>
+          </div>
+        </a>
+
+        <a
+          href="/silent_hill/pages/index.html"
+          className="group overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition hover:scale-[1.02] hover:border-red-500"
+        >
+          <img
+            src="/assets/img/silent-hill-card.png"
+            alt="Silent Hill"
+            className="h-40 w-full object-cover opacity-85 transition group-hover:opacity-100"
+          />
+
+          <div className="p-4">
+            <h2 className="text-lg font-semibold">サイレント・ヒル</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              メモと文書を読む
+            </p>
+          </div>
+        </a>
+
+        <a
+          href="/ff7/pages/index.html"
+          className="group overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition hover:scale-[1.02] hover:border-red-500"
+        >
+          <img
+            src="/assets/img/ff7-card.png"
+            alt="Final Fantasy VII"
+            className="h-40 w-full object-cover opacity-85 transition group-hover:opacity-100"
+          />
+
+          <div className="p-4">
+            <h2 className="text-lg font-semibold">
+              ファイナルファンタジーVII
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              ゲームスクリプトを読む
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
   );
 }
 
