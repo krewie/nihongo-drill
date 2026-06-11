@@ -56,8 +56,8 @@ body {
 .memo-paper {
     position: relative;
 
-    width: 65vw;
-    max-width: 900px;
+    width: var(--memo-bg-width, 65vw);
+    max-width: var(--memo-bg-max-width, 900px);
 
     /*Adjust to match image size*/
     aspect-ratio: 1922 / 1107;
