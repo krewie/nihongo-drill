@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SH2 - Memos - Pamphlet</title>
+
+  <link rel="stylesheet" href="../../../assets/css/bitmap-renderer.css" />
+</head>
+
+<body>
+  
+<div class="memo-controls">
+  <button type="button" data-lang="ja">日本語</button>
+  <button type="button" data-lang="en">English</button>
+  <button type="button" data-action="toggle-language-mode">All Languages</button>
+
+  <button type="button" data-action="prev">Prev</button>
+  <button type="button" data-action="toggle-page-mode">Show One</button>
+  <button type="button" data-action="next">Next</button>
+</div>
+
+  <div class="memo-stage">
+    <div
+      class="memo-paper"
+      style="
+      --memo-bg-image: url('../../assets/img/welcome-silent-hill.png');
+      --memo-bg-width: 100%; 
+      --memo-bg-max-width: 100%;
+      ">
+
+<div id="bitmapText" class="bitmap-text"></div>
+
+<!-- Page 1 -->
+<template class="memo-page active" lang="ja">
+サイレントヒルへようこそ！
+</template>
+
+<template class="memo-page active" lang="en">
+Welcome to Silent Hill!
+</template>
+
+<!-- Page 2 -->
+<template class="memo-page active" lang="ja">
+湖をのぞむ静かなリゾートタウン、
+サイレントヒル。皆様のこの町への
+来訪を歓迎します。騒がしく忙しい
+日々は忘れて、ゆっくりと休暇を
+お楽しみください。
+</template>
+
+<template class="memo-page active" lang="en">
+Silent Hill, a quiet little lakeside
+resort town. We're happy to have
+you. Take some time out of your
+busy schedules and enjoy a nice
+restful vacation here.
+</template>
+
+<!-- Page 3 -->
+<template class="memo-page active" lang="ja">
+落ち着きある素朴な町並み。
+自然あふれる山々の景観。
+そして早朝、昼間、夕暮れと時間の
+変化と共に、幾つもの美しさを見せる
+湖。
+</template>
+
+<template class="memo-page active" lang="en">
+Row after row of quaint old houses,
+a gorgeous mountain landscape,
+and a lake which shows different
+sides of its beauty with the
+passing of the day, from sunrise
+to late afternoons to sunset.
+</template>
+
+<!-- Page 4 -->
+<template class="memo-page active" lang="ja">
+サイレントヒルは、きっと皆様に深い
+感動と、安らぎを与えることでしょう。
+この町での滞在が楽しく充実したもの
+になることを、最高に思い出深いものにな
+ることを願っております。
+</template>
+
+<template class="memo-page active" lang="en">
+Silent Hill will move you and fill
+you with a feeling of deep peace.
+I hope your time here will be
+pleasant and your memories will
+last forever.
+</template>
+
+<!-- Page 5 -->
+<template class="memo-page active" lang="ja">
+編集者：ロジャー・ウィドマーク
+</template>
+
+<template class="memo-page active" lang="en">
+Editor: Roger Widmark
+</template>
+    </div>
+</div>
+
+<script src="../../../assets/js/renderer.js"></script>
+<script src="../../../assets/js/memo-controls.js"></script>
+</body>
+</html>
