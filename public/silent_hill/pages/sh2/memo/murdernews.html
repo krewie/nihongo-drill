@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Marys letter</title>
+
+  <link rel="stylesheet" href="../../../assets/css/bitmap-renderer.css" />
+</head>
+
+<body>
+  
+<div class="memo-controls">
+  <button type="button" data-lang="ja">日本語</button>
+  <button type="button" data-lang="en">English</button>
+  <button type="button" data-action="toggle-language-mode">All Languages</button>
+
+  <button type="button" data-action="prev">Prev</button>
+  <button type="button" data-action="toggle-page-mode">Show One</button>
+  <button type="button" data-action="next">Next</button>
+</div>
+
+  <div class="memo-stage">
+    <div
+      class="memo-paper"
+      style="
+      --memo-bg-image: url('../../assets/img/trash.png');
+      --memo-bg-width: 100%; 
+      --memo-bg-max-width: 100%;
+      ">
+
+<div id="bitmapText" class="bitmap-text"></div>
+
+<!-- Page 1 -->
+<template class="memo-page active" lang="ja">
+サイレントヒルで2月に起きたビ
+リー／ミリアム・ロケイン兄妹殺害
+事件の犯人として、今月18日に逮
+捕されていたウォルター・サリバン
+が、22日の深夜に拘置所独房内で
+自殺したことを警察は発表した。
+</template>
+
+<template class="memo-page active" lang="en">
+The police announced today that
+Walter Sullivan, who was arrested
+on the 18th of this month for the
+brutal murder of Billy Locane and
+his sister Miriam, committed
+suicide in his jail cell early on the
+morning of the 22nd.
+</template>
+
+<!-- Page 2 -->
+<template class="memo-page active" lang="ja">
+発表によると、ウォルター・サリ
+バンは食事についてくるスプニンを、
+自分の首（前面左、頚動脈付近）に
+突き刺した。スプーンは首に約5セ
+ンチほどめり込み、その傷からの出
+血により、看守によって発見された
+ときには既に死亡していた。
+</template>
+
+<template class="memo-page active" lang="en">
+According to the police
+statement, Sullivan used a soup
+spoon to stab himself in the neck,
+severing his carotid artery.
+By the time the guard discovered
+him, Sullivan was dead from blood
+loss, the spoon buried two inches
+in his neck.
+</template>
+
+<!-- Page 3 -->
+<template class="memo-page active" lang="ja">
+ウォルター・サリバンの住んでい
+たプレザントリバーの同級生は、
+「子供を殺すような人間には見えな
+かった。学校では穏やかで、それに
+親切な人間だった。
+</template>
+
+<template class="memo-page active" lang="en">
+An old schoolmate of Walter
+Sullivan's from his hometown of
+Pleasant River said "He didn't
+look like the type of guy who
+would kill kids.
+</template>
+
+<!-- Page 4 -->
+<template class="memo-page active" lang="ja">
+ただ、あいつが逮捕される少し前に
+会ったときに、妙なことを口走って
+いたのは覚えている。『あいつは俺
+を殺そうとしている。裁こうとして
+いる。赤い悪魔だ、怪物だ。許して
+くれ。やったのは俺だけど、俺じゃ
+ないんだ」
+</template>
+
+<template class="memo-page active" lang="en">
+But I do remember that just
+before they arrested him he
+was blurting out all sorts of
+strange stuff like 'He's trying
+to kill me. He's trying to
+punish me. The monster... the
+red devil. Forgive me. I did it,
+but it wasn't me!'."
+</template>
+
+<!-- Page 5 -->
+<template class="memo-page active" lang="ja">
+... ...確かに、少しおかしかったのか
+もしれない」と語った。
+</template>
+
+<template class="memo-page active" lang="en">
+The schoolmate then added
+"I guess now that I think of it,
+he was kinda crazy."
+</template>
+
+    </div>
+</div>
+
+<script src="../../../assets/js/renderer.js"></script>
+<script src="../../../assets/js/memo-controls.js"></script>
+</body>
+</html>

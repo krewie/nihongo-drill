@@ -158,12 +158,6 @@ body {
 
 .sh2-content {
     width: fit-content;
-
-    /*
-      This is the magic:
-      - if content is short, auto margins center it vertically
-      - if content is too tall, margins collapse and scrolling starts
-    */
     margin-top: auto;
     margin-bottom: auto;
 }
