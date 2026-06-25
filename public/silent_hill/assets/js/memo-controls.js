@@ -1,7 +1,7 @@
 let currentLang = "ja";
-let showAllLanguages = false;
+let showAllLanguages = true;
 
-let currentPageMode = "all"; // "all" or "slice"
+let currentPageMode = "slice"; // "all" or "slice"
 let currentPageIndex = 0;
 
 function getAllPages() {

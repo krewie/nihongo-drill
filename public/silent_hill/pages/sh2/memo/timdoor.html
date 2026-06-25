@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SH2 - Memos - Pamphlet</title>
+
+  <link rel="stylesheet" href="../../../assets/css/bitmap-renderer.css" />
+</head>
+
+<body>
+  
+<div class="memo-controls">
+  <button type="button" data-lang="ja">日本語</button>
+  <button type="button" data-lang="en">English</button>
+  <button type="button" data-action="toggle-language-mode">All Languages</button>
+
+  <button type="button" data-action="prev">Prev</button>
+  <button type="button" data-action="toggle-page-mode">Show One</button>
+  <button type="button" data-action="next">Next</button>
+</div>
+
+  <div class="memo-stage">
+    <div
+      class="memo-paper"
+      style="
+      --memo-bg-image: url('../../assets/img/timdoor.png');
+      --memo-bg-width: 100%; 
+      --memo-bg-max-width: 100%;
+      ">
+
+<div id="bitmapText" class="bitmap-text"></div>
+
+<!-- Page 1 -->
+<template class="memo-page active" lang="ja">
+ティムへ
+急用ができてしまったので、出かけてきます。
+</template>
+
+<template class="memo-page active" lang="en">
+Dear Tim,
+I have to run an errand so
+I'm going out.
+</template>
+
+<!-- Page 2 -->
+<template class="memo-page active" lang="ja">
+家の鍵は、デビットおじさんに
+頂けてあります（デビットおじさ
+んの家はわかりますよね？　1階
+の階段のそばの部屋です）。
+できるだけ早く帰ってくるので、
+留守番していてください。
+</template>
+
+<template class="memo-page active" lang="en">
+I left the house key with Uncle
+David (You know where he lives,
+don't you? The key is in the room
+near the first floor staircase.).
+I'll be back as soon as I can, so
+please watch the place while I'm
+gone.
+</template>
+
+    </div>
+</div>
+
+<script src="../../../assets/js/renderer.js"></script>
+<script src="../../../assets/js/memo-controls.js"></script>
+</body>
+</html>

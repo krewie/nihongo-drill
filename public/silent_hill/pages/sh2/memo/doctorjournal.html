@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SH2 - Memos - Pamphlet</title>
+
+  <link rel="stylesheet" href="../../../assets/css/bitmap-renderer.css" />
+</head>
+
+<body>
+  
+<div class="memo-controls">
+  <button type="button" data-lang="ja">日本語</button>
+  <button type="button" data-lang="en">English</button>
+  <button type="button" data-action="toggle-language-mode">All Languages</button>
+
+  <button type="button" data-action="prev">Prev</button>
+  <button type="button" data-action="toggle-page-mode">Show One</button>
+  <button type="button" data-action="next">Next</button>
+</div>
+
+  <div class="memo-stage">
+    <div
+      class="memo-paper"
+      style="
+      --memo-bg-image: url('../../assets/img/doctor-journal.png');
+      --memo-bg-width: 100%; 
+      --memo-bg-max-width: 100%;
+      ">
+
+        <div id="bitmapText" class="bitmap-text"></div>
+
+        <!-- Page 1 -->
+        <template class="memo-page active" lang="ja">
+この病の要因は全ての人の中に
+存在し得るものであり、そして何
+らかのきっかけがあれば、例えば
+彼のように向こう側へ行ってしま
+うことも容易にありえる。
+        </template>
+
+        <template class="memo-page active" lang="en">
+The potential for this illness
+exists in all people and, under
+the right circumstances, any
+man or woman would be driven,
+like him, to "the other side."
+        </template>
+
+        <!-- Page 2 -->
+        <template class="memo-page active" lang="ja">
+        </template>
+
+        <template class="memo-page active" lang="en">
+        </template>
+
+        <!-- Page 3 -->
+        <template class="memo-page active" lang="ja">
+        </template>
+
+        <template class="memo-page active" lang="en">
+        </template>
+
+        <!-- Page 4 -->
+        <template class="memo-page active" lang="ja">
+        </template>
+
+        <template class="memo-page active" lang="en">
+        </template>
+
+        <!-- Page 5 -->
+        <template class="memo-page active" lang="ja">
+        </template>
+
+        <template class="memo-page active" lang="en">
+        </template>
+
+        <!-- Page 6 -->
+        <template class="memo-page active" lang="ja">
+        </template>
+
+        <template class="memo-page active" lang="en">
+        </template>
+
+        <!-- Page 7 -->
+        <template class="memo-page active" lang="ja">
+        </template>
+
+        <template class="memo-page active" lang="en">
+        </template>
+
+    </div>
+</div>
+
+<script src="../../../assets/js/renderer.js"></script>
+<script src="../../../assets/js/memo-controls.js"></script>
+</body>
+</html>
